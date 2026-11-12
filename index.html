@@ -24,7 +24,7 @@ h2{font-size:clamp(24px,4vw,40px);margin-bottom:6px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:14px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:transform .2s}
 .card:hover{transform:translateY(-4px)}
-.card svg{display:block;width:100%;height:auto}
+.card{position:relative}.card svg{display:block;width:100%;height:auto;transition:transform .5s}.card:hover svg{transform:scale(1.07)}.card .imgw{overflow:hidden}
 .card .t{padding:11px 14px 14px}
 .card b{display:block;font-size:15px;margin-bottom:2px}
 .card span{font-size:13px;color:var(--mut);line-height:1.4;display:block}
@@ -50,9 +50,42 @@ nav button:disabled{opacity:.35;cursor:default}
 .bw{flex:1;max-width:340px;height:6px;border-radius:4px;background:var(--line);overflow:hidden}
 .bw i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--b));transition:.4s}
 @media(max-width:720px){.hero,.cols{grid-template-columns:1fr}.hero svg{order:-1;max-height:200px}}
+
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.bg i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.38;animation:float 16s ease-in-out infinite}
+.bg i:nth-child(1){width:46vmax;height:46vmax;left:-12vmax;top:-14vmax;background:var(--a)}
+.bg i:nth-child(2){width:40vmax;height:40vmax;right:-12vmax;bottom:-10vmax;background:var(--b);animation-delay:-5s}
+.bg i:nth-child(3){width:28vmax;height:28vmax;left:40%;top:30%;background:#7b4bd6;opacity:.22;animation-delay:-10s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(5vmax,3vmax) scale(1.12)}66%{transform:translate(-3vmax,5vmax) scale(.94)}}
+@keyframes rise{from{opacity:0;transform:translateY(34px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes drift{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-12px) rotate(1.2deg)}}
+@keyframes shine{to{background-position:200% center}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(228,87,46,.5)}70%{box-shadow:0 0 0 12px rgba(228,87,46,0)}}
+h1,h2{background:linear-gradient(90deg,var(--tx),var(--a),var(--b),var(--tx));background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 7s linear infinite}
+.slide.on h1,.slide.on h2,.slide.on .tag,.slide.on .sub{animation:rise .7s both,shine 7s linear infinite}
+.slide.on .tag{animation:rise .6s both;background:none}
+.slide.on .sub{animation:rise .7s .15s both;background:none;color:var(--mut)}
+.slide .card,.slide .box,.slide .step{opacity:0}
+.slide.on .card,.slide.on .box,.slide.on .step{animation:rise .65s calc(.25s + var(--i,0)*90ms) both}
+.hero svg{animation:drift 7s ease-in-out infinite;box-shadow:0 30px 60px -20px rgba(0,0,0,.45)}
+.slide .bar i{transform:scaleX(0);transform-origin:left}
+.slide.on .bar i{transform:scaleX(1);transition:transform 1.5s .6s cubic-bezier(.2,.8,.2,1)}
+.card{cursor:pointer;align-self:start;box-shadow:0 6px 18px -8px rgba(0,0,0,.35)}
+.card:hover{box-shadow:0 18px 34px -12px rgba(0,0,0,.5)}
+.card .t{position:relative;padding-right:34px}
+.card .t::after{content:"+";position:absolute;right:11px;top:11px;width:20px;height:20px;border-radius:50%;background:var(--a);color:#fff;display:grid;place-items:center;font-size:15px;line-height:1;transition:transform .35s;animation:pulse 2.6s infinite}
+.card.open .t::after{transform:rotate(45deg);animation:none}
+.card:not(.hm) .t::after{display:none}
+.more{max-height:0;overflow:hidden;opacity:0;transition:max-height .5s,opacity .4s,margin .4s;font-size:13px;line-height:1.55;color:var(--tx);margin-top:0}
+.card.open .more{max-height:300px;opacity:1;margin-top:10px}
+.step:hover{transform:translateY(-5px);transition:.25s}
+nav button{transition:transform .2s,box-shadow .2s}nav button:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 18px -6px var(--a)}
+.hint{font-size:12px;color:var(--mut);margin-bottom:12px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.slide .card,.slide .box,.slide .step{opacity:1}.slide .bar i{transform:none}}
 </style>
 </head>
 <body>
+<div class="bg" id="bg"><i></i><i></i><i></i></div>
 <div class="deck" id="deck">
 
 <section class="slide on">
@@ -83,7 +116,7 @@ nav button:disabled{opacity:.35;cursor:default}
 <section class="slide">
  <span class="tag">Įvadas</span>
  <h2>Kodėl apie tai kalbame?</h2>
- <p class="sub">Darbo rinka keičiasi greičiau nei bet kada. Profesijos, kurios seniau užtikrindavo darbą visam gyvenimui, šiandien gali būti pakeistos programa ar mašina, o tuo pačiu atsiranda visiškai naujų darbų.</p>
+ <p class="sub">Darbo rinka keičiasi greičiau nei bet kada. Profesijos, kurios seniau užtikrindavo darbą visam gyvenimui, šiandien gali būti pakeistos programa ar mašina, o kartu atsiranda visiškai naujų darbų. Šioje prezentacijoje aiškinamės, kodėl taip vyksta ir kaip tam pasiruošti.</p><p class="hint">Spustelėkite kortelę su „+“, kad pamatytumėte daugiau.</p>
  <div class="grid" data-k="intro"></div>
 </section>
 
@@ -92,6 +125,18 @@ nav button:disabled{opacity:.35;cursor:default}
  <h2>Kodėl profesijos nyksta?</h2>
  <p class="sub">Dažniausiai nėra vienos priežasties. Profesiją „nugali“ kelios jėgos kartu.</p>
  <div class="grid" data-k="why"></div>
+</section>
+
+<section class="slide">
+ <span class="tag">Technologijų bangos</span>
+ <h2>Kaip technologijos keitė darbą</h2>
+ <p class="sub">Kiekviena technologinė revoliucija panaikino dalį profesijų, bet sukūrė dar daugiau naujų. Skirtumas tas, kad dabar pokyčiai vyksta kur kas greičiau, todėl persikvalifikuoti tenka dar kartą per gyvenimą.</p>
+ <div class="steps" style="margin-top:14px">
+  <div class="step"><b>Garas ir mašinos (XVIII a.)</b><span>Rankų darbą keičia fabrikai, nyksta daugelis amatų, o miestuose atsiranda fabrikų darbininkai.</span></div>
+  <div class="step"><b>Elektra ir konvejeris (XIX a. pabaiga)</b><span>Prasideda masinė gamyba. Žibintų uždegėjų ir ledo pjovėjų darbą perima elektra.</span></div>
+  <div class="step"><b>Kompiuteriai ir internetas (XX a. pabaiga)</b><span>Biuro darbas pereina į skaitmeninį pasaulį. Nyksta mašininkės, atsiranda programuotojai.</span></div>
+  <div class="step"><b>Dirbtinis intelektas (dabar)</b><span>Automatizuojamas ir protinis darbas. Kartu atsiranda DI specialistų, duomenų analitikų ir saugumo ekspertų.</span></div>
+ </div>
 </section>
 
 <section class="slide">
@@ -132,6 +177,13 @@ nav button:disabled{opacity:.35;cursor:default}
  <h2>Profesijos, kurių daugėja</h2>
  <p class="sub">Joms reikia technologinių, analitinių ir kūrybinių gebėjimų.</p>
  <div class="grid up" data-k="new"></div>
+</section>
+
+<section class="slide">
+ <span class="tag">Svarbu</span>
+ <h2>Dalis profesijų nedingsta, o keičiasi</h2>
+ <p class="sub">Dažnai technologija pakeičia ne visą profesiją, o jos užduotis. Žmogus lieka, bet dirba kitaip ir naudojasi naujais įrankiais.</p>
+ <div class="grid" data-k="evolve"></div>
 </section>
 
 <section class="slide">
@@ -184,29 +236,59 @@ nav button:disabled{opacity:.35;cursor:default}
 (function(){
  var D={
  intro:[["🤖","Automatizacija","Rutininį darbą perima mašinos"],["🧠","Dirbtinis intelektas","Analizė ir turinio kūrimas"],["🌐","Skaitmenizacija","Paslaugos persikelia į internetą"],["🌱","Žalioji kaita","Atsinaujinanti energetika"]],
- why:[["🤖","Automatizacija","Mašina dirba greičiau, pigiau ir be pertraukų."],["💻","Skaitmenizacija","Popierių ir tarpininkus keičia programos."],["💶","Kaina","Darbdaviui pigiau investuoti į technologiją."],["🛍️","Įpročių kaita","Žmonės perka internetu ir naudojasi savitarna."],["🌍","Globalizacija","Darbai persikelia ten, kur jie pigesni."],["🌿","Aplinkosauga","Taršios technologijos pakeičiamos švariomis."]],
+ why:[["🤖","Automatizacija","Mašina dirba greičiau, pigiau ir be pertraukų. Kur darbas pasikartoja, jį pirmiausia perima įrenginiai."],["💻","Skaitmenizacija","Popierių ir tarpininkus keičia programos, todėl nebereikia žmonių, kurie perduoda informaciją iš vienos vietos į kitą."],["💶","Kaina","Darbdaviui dažnai pigiau vieną kartą investuoti į technologiją nei nuolat mokėti atlyginimus."],["🛍️","Įpročių kaita","Žmonės perka internetu, moka telefonu ir naudojasi savitarna, todėl tradicinių paslaugų poreikis mažėja."],["🌍","Globalizacija","Gamyba ir paslaugos persikelia ten, kur jos pigesnės, todėl vietos darbo vietų sumažėja."],["🌿","Aplinkosauga","Taršios technologijos keičiamos švariomis, o su jomis nyksta ir susijusios profesijos."]],
  gone:[["🕯️","Žibintų uždegėjas","Gatves uždegdavo rankomis, kol atsirado elektra."],["📡","Telegrafistas","Žinutes siųsdavo kodu, jas pakeitė telefonas."],["🧊","Ledo pjovėjas","Ledą parduodavo namams, kol atsirado šaldytuvai."],["🛗","Liftininkas","Lifto mygtukus spausdavo žmogus, dabar tai daro keleivis."],["🥛","Pieno išvežiotojas","Pieną vežiodavo į namus, dabar jis perkamas parduotuvėje."],["✍️","Rankinis rašeiva","Tekstus perrašydavo ranka, kol atsirado spausdinimas."]],
  now:[["🛒","Kasininkas","Savitarnos kasos"],["☎️","Telefonistas","Automatiniai atsakikliai"],["⌨️","Mašininkė","Tekstų rengyklės"],["🎞️","Foto ryškintojas","Skaitmeninė fotografija"],["🏦","Banko operatorius","Internetinė bankininkystė"],["📠","Spaustuvės rinkėjas","Kompiuterinis maketavimas"]],
  whynew:[["📱","Nauji prietaisai","Programėlėms ir įrenginiams reikia kūrėjų."],["🔐","Naujos rizikos","Daugiau duomenų reiškia daugiau grėsmių."],["🌞","Energetikos kaita","Reikia žalios energijos specialistų."],["❤️","Gyvenimo trukmė","Vyresnei visuomenei reikia sveikatos priežiūros."]],
  new:[["📊","Duomenų analitikas","Sprendimai iš duomenų"],["🧠","DI specialistas","Modelių kūrimas ir priežiūra"],["🛡️","Kibernetinio saugumo ekspertas","Apsauga nuo atakų"],["🎨","UX dizaineris","Patogios programos"],["🚁","Dronų operatorius","Žemėlapiai, stebėsena"],["☀️","Saulės energetikos technikas","Žalioji energetika"],["🎮","Žaidimų kūrėjas","Interaktyvi pramoga"],["🎥","Turinio kūrėjas","Vaizdo įrašai ir socialiniai tinklai"]],
  tips:[["📚","Mokykitės nuolat","Kursai, savarankiškas mokymasis."],["💡","Lavinkite kūrybiškumą","Tai, ko mašina dar nemoka."],["🗣️","Tobulinkite bendravimą","Komandinis darbas visada reikalingas."],["🧰","Išmokite naudotis DI","Jis taps įprastu darbo įrankiu."]],
+ evolve:[["👩‍⚕️","Gydytojas","DI padeda atpažinti ligas nuotraukose, bet sprendimus ir pokalbį su pacientu atlieka žmogus."],["👩‍🏫","Mokytojas","Programos paaiškina temą, bet motyvuoti, palaikyti ir ugdyti charakterį gali tik žmogus."],["🧮","Buhalteris","Skaičiavimus atlieka programos, o specialistas daugiau konsultuoja ir planuoja."],["🚚","Vairuotojas","Atsiranda pagalbinės sistemos ir autonominės transporto priemonės, tačiau darbas keičiasi palaipsniui."],["📰","Žurnalistas","Naujienų rašymą gali palengvinti DI, bet tyrimas, šaltinių tikrinimas ir etika lieka žmogui."],["🏗️","Statybininkas","Dronai ir robotai padeda matuoti ir statyti, bet vietoje sprendžia meistrai."]],
  end:[["🔄","Profesijos keičiasi","Pokyčiai vyksta nuolat."],["📚","Mokymasis visą gyvenimą","Persikvalifikavimas tampa norma."],["🤝","Žmogiškumas svarbus","Empatija ir kūryba sunkiai automatizuojamos."]]
  };
+ var M={
+ gone:["Kiekvieną vakarą jis lazda uždegdavo dujinius ar žibalinius gatvių žibintus, o ryte juos užgesindavo. Kai miestus nušvietė elektra su automatiniais jungikliais, šio darbo nebeliko.","Žinutės būdavo siunčiamos Morzės kodu, o telegrafistas jas užkoduodavo ir iššifruodavo. Telefonas, vėliau faksas ir el. paštas šią paslaugą padarė nebereikalingą.","Žiemą ledas būdavo pjaunamas iš ežerų ir sandėliuojamas, kad vasarą būtų galima laikyti maistą šaltai. Elektriniai šaldytuvai šią prekybą pakeitė.","Žmogus valdydavo lifto svirtį ir sustodavo reikiamame aukšte. Automatiniai mygtukai ir jutikliai leido keleiviams lifto naudotis patiems.","Pieną į namus atveždavo kasdien, o tuščius butelius išveždavo atgal. Šaldytuvai, automobiliai ir prekybos centrai pakeitė šį įprotį.","Dokumentus, laiškus ir knygas perrašydavo ranka. Spaudos staklės, o vėliau spausdintuvai šį darbą padarė kelis kartus greitesnį."],
+ now:["Savitarnos kasos ir mobiliosios programėlės mažina kasininkų poreikį. Dalis jų persikvalifikuoja į klientų aptarnavimo ar pardavimų konsultantus.","Automatiniai atsakikliai ir pokalbių robotai atsako į dažniausius klausimus. Žmonių lieka sudėtingiems atvejams spręsti.","Tekstų rengyklės leidžia visiems rašyti ir taisyti dokumentus patiems. Profesija virto sekretoriaus ir asmeninio asistento darbu.","Skaitmeninės kameros ir telefonai panaikino plėvelės ryškinimo poreikį. Likusios laboratorijos dirba kaip nišinė paslauga.","Mokėjimai ir pavedimai atliekami programėlėje per kelias sekundes. Bankų skyrių mažėja, o darbuotojai perkeliami į konsultacijas.","Raides kadaise dėdavo ranka, vėliau jas pakeitė kompiuterinis maketavimas. Dabar tai atlieka dizaineriai programose."],
+ new:["Įmonės kaupia didžiulius duomenų kiekius ir ieško, kaip juos paversti sprendimais. Analitikai tvarko, vizualizuoja ir aiškina duomenis.","Kuria, apmoko ir prižiūri dirbtinio intelekto sistemas. Reikia matematikos, programavimo ir supratimo apie etiką.","Saugo sistemas nuo įsilaužimų, nutekėjimų ir sukčiavimo. Kuo daugiau gyvenimo internete, tuo daugiau šių specialistų reikia.","Tiria, kaip žmonės naudojasi programomis, ir kuria patogias, aiškias sąsajas. Jungia psichologiją, dizainą ir technologijas.","Dronai fotografuoja laukus, tikrina elektros linijas, filmuoja ir pristato siuntas. Reikia skraidymo ir duomenų apdorojimo žinių.","Montuoja ir prižiūri saulės elektrines. Žalioji kaita ir energijos kainos didina šių specialistų paklausą.","Kuria žaidimų pasaulius, istorijas ir mechanikas. Žaidimų industrija jungia programuotojus, dailininkus ir rašytojus.","Kuria vaizdo įrašus, podkastus ir įrašus socialiniuose tinkluose. Tai vienas iš naujų būdų užsidirbti iš kūrybos."]
+ };
  var P=[["#e4572e","#f2a541"],["#17a398","#2e6fd8"],["#7b4bd6","#e4572e"],["#2a9d4a","#17a398"],["#2e6fd8","#7b4bd6"],["#f2a541","#e4572e"]];
- function scene(e,n,g){
-  var c=P[n%P.length],id="s"+g+n;
-  return '<svg viewBox="0 0 300 150" aria-hidden="true"><defs><linearGradient id="'+id+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+c[0]+'"/><stop offset="1" stop-color="'+c[1]+'"/></linearGradient></defs><rect width="300" height="150" fill="url(#'+id+')"/><circle cx="255" cy="34" r="22" fill="#fff" opacity=".28"/><circle cx="40" cy="30" r="40" fill="#fff" opacity=".1"/><path d="M0 150V108Q60 78 120 106T240 100 300 112V150Z" fill="#000" opacity=".18"/><path d="M0 150V124Q80 100 150 122T300 120V150Z" fill="#000" opacity=".22"/><ellipse cx="150" cy="128" rx="46" ry="7" fill="#000" opacity=".25"/><text x="150" y="105" font-size="66" text-anchor="middle">'+e+'</text></svg>';
+ function scene(e,n,g,k){
+  var T={gone:'o',now:'c',new:'t',whynew:'t',why:'c',intro:'t',tips:'n',end:'n',evolve:'c'}[k],
+  C={o:['#f3d9a4','#8a5a30','#3b2412'],c:['#9cc0e3','#3d5a80','#14202e'],t:['#2de2c5','#2a4fd6','#0a1030'],n:['#ffe9a8','#3aa76d','#0f3d2c']}[T],
+  id='q'+g+'_'+n,s='',i,j,x,y,h,w,sx=60+(n*53)%180;
+  s+='<svg viewBox="0 0 300 170" aria-hidden="true"><defs><linearGradient id="a'+id+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+(T=='t'?C[2]:C[1])+'"/><stop offset="1" stop-color="'+(T=='t'?C[1]:C[0])+'"/></linearGradient>'
+  +'<radialGradient id="b'+id+'"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>'
+  +'<radialGradient id="c'+id+'" cx=".5" cy=".5" r=".75"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".6"/></radialGradient>'
+  +'<filter id="d'+id+'"><feTurbulence baseFrequency=".85" numOctaves="2" seed="'+n+'"/><feColorMatrix type="saturate" values="0"/></filter>'
+  +'<filter id="e'+id+'" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity=".55"/></filter></defs>'
+  +'<rect width="300" height="170" fill="url(#a'+id+')"/><circle cx="'+sx+'" cy="46" r="62" fill="url(#b'+id+')" opacity=".75"/><circle cx="'+sx+'" cy="46" r="15" fill="#fff" opacity=".85"/>';
+  for(i=0;i<7;i++)s+='<circle cx="'+((n*37+i*61)%300)+'" cy="'+((i*29+n*17)%90+8)+'" r="'+(5+i*2.5)+'" fill="#fff" opacity=".1"/>';
+  if(T=='n'){
+   s+='<path d="M0 125Q50 70 110 108T220 92 300 112V170H0Z" fill="'+C[1]+'" opacity=".55"/><path d="M0 140Q80 96 160 128T300 118V170H0Z" fill="'+C[2]+'" opacity=".6"/>';
+   for(i=0;i<8;i++){x=14+i*38+(n*7)%12;y=122+(i%3)*6;s+='<rect x="'+(x-1.5)+'" y="'+y+'" width="3" height="12" fill="#2b1a0e"/><circle cx="'+x+'" cy="'+(y-4)+'" r="'+(9+(i%3)*2)+'" fill="'+C[2]+'" opacity=".85"/>';}
+  }else{
+   for(i=0;i<10;i++){h=36+((i*37+n*11)%52);x=i*31;y=128-h;s+='<rect x="'+x+'" y="'+y+'" width="28" height="'+h+'" fill="'+C[2]+'" opacity=".6"/>';
+    for(j=0;j<4;j++)if((i+j+n)%2==0)s+='<rect x="'+(x+5)+'" y="'+(y+6+j*10)+'" width="5" height="5" fill="#ffd97a" opacity=".8"/><rect x="'+(x+16)+'" y="'+(y+6+j*10)+'" width="5" height="5" fill="#ffd97a" opacity=".55"/>';}
+   s+='<rect y="128" width="300" height="42" fill="'+C[2]+'" opacity=".6"/>';
+   if(T=='t'){for(i=-5;i<=5;i++)s+='<line x1="150" y1="128" x2="'+(150+i*55)+'" y2="170" stroke="'+C[0]+'" stroke-width=".8" opacity=".35"/>';
+    for(i=0;i<3;i++)s+='<line x1="0" y1="'+(136+i*13)+'" x2="300" y2="'+(136+i*13)+'" stroke="'+C[0]+'" stroke-width=".8" opacity=".3"/>';
+    s+='<path d="M10 20h40v14h30M230 16h30v22h28" stroke="'+C[0]+'" stroke-width="1.4" fill="none" opacity=".6"/><circle cx="80" cy="34" r="3" fill="'+C[0]+'"/><circle cx="288" cy="38" r="3" fill="'+C[0]+'"/>';}
+  }
+  s+='<ellipse cx="150" cy="134" rx="52" ry="8" fill="#000" opacity=".35"/><text x="150" y="124" font-size="76" text-anchor="middle" filter="url(#e'+id+')">'+e+'</text>'
+  +'<rect width="300" height="170" filter="url(#d'+id+')" opacity="'+(T=='o'?.3:.16)+'"/><rect width="300" height="170" fill="url(#c'+id+')"/></svg>';
+  return s;
  }
  var gi=0;
  [].forEach.call(document.querySelectorAll('[data-k]'),function(el){
   gi++;
   D[el.dataset.k].forEach(function(r,n){
    var d=document.createElement('div');d.className='card';
-   d.innerHTML=scene(r[0],n,gi)+'<div class="t"><b>'+r[1]+'</b><span>'+r[2]+'</span></div>';
+   d.style.setProperty('--i',n);var mo=M[el.dataset.k]&&M[el.dataset.k][n];if(mo)d.classList.add('hm');d.innerHTML='<div class="imgw">'+scene(r[0],n,gi,el.dataset.k)+'</div><div class="t"><b>'+r[1]+'</b><span>'+r[2]+'</span>'+(mo?'<p class="more">'+mo+'</p>':'')+'</div>';if(mo)d.onclick=function(){d.classList.toggle('open')};
    el.appendChild(d);
   });
  });
+ [].forEach.call(document.querySelectorAll('.step,.box'),function(e,n){e.style.setProperty('--i',n%6)});
  var s=[].slice.call(document.querySelectorAll('.slide')),i=0;
+ document.addEventListener('mousemove',function(e){var b=document.getElementById('bg');b.style.transform='translate('+((e.clientX/innerWidth-.5)*-30)+'px,'+((e.clientY/innerHeight-.5)*-30)+'px)'});
  function go(n){
   i=Math.max(0,Math.min(s.length-1,n));
   s.forEach(function(x,k){x.classList.toggle('on',k===i);x.classList.toggle('past',k<i)});
