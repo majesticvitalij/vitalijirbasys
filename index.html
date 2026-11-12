@@ -1,116 +1,235 @@
 <!DOCTYPE html>
 <html lang="lt">
 <head>
-    <meta charset="UTF-8">
-    <title>Nykstančios ir nykusios profesijos</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f9;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        header {
-            background: #4a6cf7;
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-        section {
-            max-width: 900px;
-            margin: auto;
-            background: white;
-            padding: 30px;
-            margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h2 {
-            color: #4a6cf7;
-        }
-        p {
-            line-height: 1.6;
-        }
-        .slide {
-            margin-bottom: 40px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #777;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nykstančios ir naujai atsirandančios profesijos</title>
+<style>
+:root{--bg:#f4f1ea;--card:#fff;--tx:#1b2430;--mut:#5b6673;--a:#e4572e;--b:#17a398;--line:#dcd6c8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10151c;--card:#1a222d;--tx:#eef1f5;--mut:#9aa7b6;--line:#2b3644}}
+:root[data-theme="dark"]{--bg:#10151c;--card:#1a222d;--tx:#eef1f5;--mut:#9aa7b6;--line:#2b3644}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow:hidden}
+.deck{height:100%;position:relative}
+.slide{position:absolute;inset:0 0 calc(64px + env(safe-area-inset-bottom,0px));padding:clamp(16px,3.5vw,48px);display:flex;flex-direction:column;justify-content:center;opacity:0;visibility:hidden;transform:translateX(40px);transition:.45s;overflow-y:auto}
+.slide.on{opacity:1;visibility:visible;transform:none}
+.slide.past{transform:translateX(-40px)}
+h1{font-size:clamp(30px,6vw,64px);line-height:1.05;letter-spacing:-.02em}
+h2{font-size:clamp(24px,4vw,40px);margin-bottom:6px}
+.tag{display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--a);font-weight:700;margin-bottom:10px}
+.sub{color:var(--mut);font-size:clamp(14px,1.8vw,19px);max-width:70ch;margin:8px 0 18px;line-height:1.5}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+.hero svg{width:100%;height:auto;border-radius:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:transform .2s}
+.card:hover{transform:translateY(-4px)}
+.card svg{display:block;width:100%;height:auto}
+.card .t{padding:11px 14px 14px}
+.card b{display:block;font-size:15px;margin-bottom:2px}
+.card span{font-size:13px;color:var(--mut);line-height:1.4;display:block}
+.down b::before{content:"↓ ";color:var(--a)}
+.up b::before{content:"↑ ";color:var(--b)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.box h3{margin-bottom:8px}
+.box li{margin:7px 0 7px 18px;color:var(--mut);line-height:1.4}
+.bar{height:12px;border-radius:8px;background:var(--line);margin:5px 0 14px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,var(--a),var(--b))}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;counter-reset:s}
+.step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 16px;counter-increment:s}
+.step::before{content:counter(s);position:absolute;top:-12px;left:14px;width:28px;height:28px;border-radius:50%;background:var(--a);color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px}
+.step b{display:block;margin-bottom:4px}.step span{color:var(--mut);font-size:14px;line-height:1.4}
+.authors{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-top:10px}
+.av{width:84px;height:84px;border-radius:50%;display:grid;place-items:center;font-size:30px;font-weight:700;color:#fff;margin:0 auto 12px}
+.authors .card{text-align:center;padding:22px}
+nav{position:fixed;left:0;right:0;bottom:0;height:calc(64px + env(safe-area-inset-bottom,0px));padding-bottom:env(safe-area-inset-bottom,0px);display:flex;align-items:center;justify-content:space-between;gap:12px;padding-inline:20px;background:var(--card);border-top:1px solid var(--line)}
+nav button{border:0;background:var(--a);color:#fff;font-size:15px;font-weight:600;padding:10px 18px;border-radius:12px;cursor:pointer}
+nav button:disabled{opacity:.35;cursor:default}
+.cnt{color:var(--mut);font-size:14px;min-width:54px;text-align:center}
+.bw{flex:1;max-width:340px;height:6px;border-radius:4px;background:var(--line);overflow:hidden}
+.bw i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--b));transition:.4s}
+@media(max-width:720px){.hero,.cols{grid-template-columns:1fr}.hero svg{order:-1;max-height:200px}}
+</style>
 </head>
 <body>
+<div class="deck" id="deck">
 
-<header>
-    <h1>Nykstančios ir nykusios profesijos</h1>
-    <p>Autoriai: Vitalij Žuravliov, Madestas Papirtis, Bernard Smirnov</p>
-</header>
-
-<section>
-
-    <div class="slide">
-        <h2>1. Įvadas</h2>
-        <p>Profesijų kaita yra nuolatinis socialinis reiškinys. Technologijos, automatizacija ir dirbtinis intelektas lemia spartų darbo rinkos pokytį.</p>
-    </div>
-
-    <div class="slide">
-        <h2>2. Kas yra nykstančios profesijos?</h2>
-        <p>Nykstančios profesijos – tai darbai, kurių paklausa mažėja dėl technologijų, automatizacijos ar socialinių pokyčių.</p>
-        <ul>
-            <li>Telefono operatoriai</li>
-            <li>Pašto rūšiuotojai</li>
-            <li>Bibliotekininkai (tradiciniai)</li>
-            <li>Spausdintojai</li>
-        </ul>
-    </div>
-
-    <div class="slide">
-        <h2>3. Nykusios profesijos</h2>
-        <p>Profesijos, kurios jau išnyko dėl technologinės pažangos.</p>
-        <ul>
-            <li>Žibintų uždegėjai</li>
-            <li>Telegrafo operatoriai</li>
-            <li>Ledo tiekėjai</li>
-            <li>Rankiniai kartografai</li>
-        </ul>
-    </div>
-
-    <div class="slide">
-        <h2>4. Kodėl profesijos nyksta?</h2>
-        <p>Priežastys:</p>
-        <ul>
-            <li>Automatizacija ir robotizacija</li>
-            <li>Dirbtinis intelektas</li>
-            <li>Skaitmenizacija</li>
-            <li>Globalizacija</li>
-            <li>Vartotojų elgsenos pokyčiai</li>
-        </ul>
-    </div>
-
-    <div class="slide">
-        <h2>5. Profesijos, kurios greitai nyks</h2>
-        <ul>
-            <li>Kasininkai</li>
-            <li>Vairuotojai (autonominiai automobiliai)</li>
-            <li>Sandėlio darbuotojai</li>
-            <li>Draudimo konsultantai</li>
-            <li>Bankų aptarnavimo specialistai</li>
-        </ul>
-    </div>
-
-    <div class="slide">
-        <h2>6. Išvados</h2>
-        <p>Nykstančios profesijos dažniausiai susijusios su pasikartojančiais, lengvai automatizuojamais darbais. Ateities darbo rinka reikalauja kūrybiškumo, analitinių gebėjimų ir technologinio raštingumo.</p>
-    </div>
-
+<section class="slide on">
+ <div class="hero">
+  <div>
+   <span class="tag">Projektinis darbas</span>
+   <h1>Nykstančios ir naujai atsirandančios profesijos</h1>
+   <p class="sub">Kodėl vienos profesijos išnyksta, o kitos atsiranda, ir kaip tam pasiruošti.</p>
+   <p style="color:var(--mut);font-size:14px">Vitalij Žuravliov · Modestas Papirtis · Bernard Smirnov</p>
+  </div>
+  <svg viewBox="0 0 400 320" role="img" aria-label="Senas telefonas ir robotas">
+   <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e4572e"/><stop offset="1" stop-color="#17a398"/></linearGradient></defs>
+   <rect width="400" height="320" fill="url(#g)"/>
+   <circle cx="320" cy="60" r="34" fill="#fff" opacity=".25"/>
+   <rect x="40" y="150" width="120" height="110" rx="14" fill="#2b2f36"/>
+   <circle cx="100" cy="205" r="30" fill="#8a8f98"/><circle cx="100" cy="205" r="10" fill="#2b2f36"/>
+   <rect x="60" y="120" width="80" height="22" rx="10" fill="#2b2f36"/>
+   <rect x="240" y="90" width="110" height="90" rx="18" fill="#fff"/>
+   <circle cx="272" cy="130" r="12" fill="#17a398"/><circle cx="318" cy="130" r="12" fill="#17a398"/>
+   <rect x="268" y="156" width="54" height="8" rx="4" fill="#e4572e"/>
+   <rect x="293" y="68" width="4" height="22" fill="#fff"/><circle cx="295" cy="64" r="7" fill="#fff"/>
+   <rect x="250" y="190" width="90" height="70" rx="14" fill="#fff" opacity=".9"/>
+   <path d="M175 205h50m-14-14 14 14-14 14" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+ </div>
 </section>
 
-<footer>
-    <p>© 2026 Nykstančios profesijos – HTML projektas</p>
-</footer>
+<section class="slide">
+ <span class="tag">Įvadas</span>
+ <h2>Kodėl apie tai kalbame?</h2>
+ <p class="sub">Darbo rinka keičiasi greičiau nei bet kada. Profesijos, kurios seniau užtikrindavo darbą visam gyvenimui, šiandien gali būti pakeistos programa ar mašina, o tuo pačiu atsiranda visiškai naujų darbų.</p>
+ <div class="grid" data-k="intro"></div>
+</section>
 
+<section class="slide">
+ <span class="tag">Priežastys</span>
+ <h2>Kodėl profesijos nyksta?</h2>
+ <p class="sub">Dažniausiai nėra vienos priežasties. Profesiją „nugali“ kelios jėgos kartu.</p>
+ <div class="grid" data-k="why"></div>
+</section>
+
+<section class="slide">
+ <span class="tag">Istorija</span>
+ <h2>Jau išnykusios profesijos</h2>
+ <p class="sub">Kadaise jos buvo įprastos ir reikalingos, o šiandien jų beveik niekas nebepamena.</p>
+ <div class="grid down" data-k="gone"></div>
+</section>
+
+<section class="slide">
+ <span class="tag">Dabar</span>
+ <h2>Profesijos, kurios nyksta šiandien</h2>
+ <p class="sub">Darbai, kuriuos lengviausia automatizuoti arba perkelti į internetą.</p>
+ <div class="grid down" data-k="now"></div>
+</section>
+
+<section class="slide">
+ <span class="tag">Pavyzdys</span>
+ <h2>Kaip išnyksta profesija: kasininkas</h2>
+ <p class="sub">Profesija dažniausiai nedingsta per naktį. Ji nyksta etapais.</p>
+ <div class="steps">
+  <div class="step"><b>Kasos aparatai</b><span>Skaičiavimą perima technika, bet žmogus dar suvedinėja kainas.</span></div>
+  <div class="step"><b>Brūkšniniai kodai</b><span>Prekės nuskaitomos greičiau, reikia mažiau darbuotojų.</span></div>
+  <div class="step"><b>Savitarnos kasos</b><span>Pirkėjas dirba pats, kasininkų lieka mažai.</span></div>
+  <div class="step"><b>Parduotuvės be kasų</b><span>Kameros ir jutikliai atpažįsta prekes, kasos nebereikia.</span></div>
+ </div>
+</section>
+
+<section class="slide">
+ <span class="tag">Priežastys</span>
+ <h2>Kodėl atsiranda naujos profesijos?</h2>
+ <p class="sub">Kiekviena technologija sukuria naujų poreikių, o naujiems poreikiams reikia žmonių.</p>
+ <div class="grid" data-k="whynew"></div>
+</section>
+
+<section class="slide">
+ <span class="tag">Ateitis</span>
+ <h2>Profesijos, kurių daugėja</h2>
+ <p class="sub">Joms reikia technologinių, analitinių ir kūrybinių gebėjimų.</p>
+ <div class="grid up" data-k="new"></div>
+</section>
+
+<section class="slide">
+ <span class="tag">Palyginimas</span>
+ <h2>Nyksta ir auga: kuo skiriasi?</h2>
+ <div class="cols" style="margin-top:12px">
+  <div class="box"><h3>Mažėjanti paklausa</h3>
+   <ul><li>Pasikartojantys veiksmai</li><li>Darbas pagal griežtą instrukciją</li><li>Paprastas informacijos perdavimas</li><li>Darbas, kurį gali atlikti programa</li></ul></div>
+  <div class="box"><h3>Augantis poreikis</h3>
+   <ul><li>Kritinis mąstymas ir kūrybiškumas</li><li>Skaitmeniniai įgūdžiai</li><li>Bendravimas ir komandinis darbas</li><li>Sudėtingų problemų sprendimas</li></ul></div>
+ </div>
+ <div class="box" style="margin-top:16px">
+  <h3>Svarbiausi įgūdžiai (iliustracinis vertinimas)</h3>
+  <small style="color:var(--mut)">Skaitmeninis raštingumas</small><div class="bar"><i style="width:90%"></i></div>
+  <small style="color:var(--mut)">Mokymasis visą gyvenimą</small><div class="bar"><i style="width:85%"></i></div>
+  <small style="color:var(--mut)">Kūrybiškumas</small><div class="bar"><i style="width:75%"></i></div>
+ </div>
+</section>
+
+<section class="slide">
+ <span class="tag">Patarimai</span>
+ <h2>Kaip pasiruošti kintančiai rinkai?</h2>
+ <div class="grid" data-k="tips" style="margin-top:12px"></div>
+</section>
+
+<section class="slide">
+ <span class="tag">Išvados</span>
+ <h2>Ką svarbu atsiminti</h2>
+ <div class="grid" data-k="end" style="margin-top:12px"></div>
+</section>
+
+<section class="slide" style="text-align:center">
+ <span class="tag">Autoriai</span>
+ <h2>Ačiū už dėmesį!</h2>
+ <div class="authors">
+  <div class="card"><div class="av" style="background:linear-gradient(135deg,#e4572e,#f2a541)">VŽ</div><b>Vitalij Žuravliov</b></div>
+  <div class="card"><div class="av" style="background:linear-gradient(135deg,#17a398,#2e6fd8)">MP</div><b>Modestas Papirtis</b></div>
+  <div class="card"><div class="av" style="background:linear-gradient(135deg,#7b4bd6,#e4572e)">BS</div><b>Bernard Smirnov</b></div>
+ </div>
+</section>
+
+</div>
+<nav>
+ <button id="prev">← Atgal</button>
+ <div class="bw"><i id="pr"></i></div>
+ <div class="cnt" id="cnt"></div>
+ <button id="next">Toliau →</button>
+</nav>
+<script>
+(function(){
+ var D={
+ intro:[["🤖","Automatizacija","Rutininį darbą perima mašinos"],["🧠","Dirbtinis intelektas","Analizė ir turinio kūrimas"],["🌐","Skaitmenizacija","Paslaugos persikelia į internetą"],["🌱","Žalioji kaita","Atsinaujinanti energetika"]],
+ why:[["🤖","Automatizacija","Mašina dirba greičiau, pigiau ir be pertraukų."],["💻","Skaitmenizacija","Popierių ir tarpininkus keičia programos."],["💶","Kaina","Darbdaviui pigiau investuoti į technologiją."],["🛍️","Įpročių kaita","Žmonės perka internetu ir naudojasi savitarna."],["🌍","Globalizacija","Darbai persikelia ten, kur jie pigesni."],["🌿","Aplinkosauga","Taršios technologijos pakeičiamos švariomis."]],
+ gone:[["🕯️","Žibintų uždegėjas","Gatves uždegdavo rankomis, kol atsirado elektra."],["📡","Telegrafistas","Žinutes siųsdavo kodu, jas pakeitė telefonas."],["🧊","Ledo pjovėjas","Ledą parduodavo namams, kol atsirado šaldytuvai."],["🛗","Liftininkas","Lifto mygtukus spausdavo žmogus, dabar tai daro keleivis."],["🥛","Pieno išvežiotojas","Pieną vežiodavo į namus, dabar jis perkamas parduotuvėje."],["✍️","Rankinis rašeiva","Tekstus perrašydavo ranka, kol atsirado spausdinimas."]],
+ now:[["🛒","Kasininkas","Savitarnos kasos"],["☎️","Telefonistas","Automatiniai atsakikliai"],["⌨️","Mašininkė","Tekstų rengyklės"],["🎞️","Foto ryškintojas","Skaitmeninė fotografija"],["🏦","Banko operatorius","Internetinė bankininkystė"],["📠","Spaustuvės rinkėjas","Kompiuterinis maketavimas"]],
+ whynew:[["📱","Nauji prietaisai","Programėlėms ir įrenginiams reikia kūrėjų."],["🔐","Naujos rizikos","Daugiau duomenų reiškia daugiau grėsmių."],["🌞","Energetikos kaita","Reikia žalios energijos specialistų."],["❤️","Gyvenimo trukmė","Vyresnei visuomenei reikia sveikatos priežiūros."]],
+ new:[["📊","Duomenų analitikas","Sprendimai iš duomenų"],["🧠","DI specialistas","Modelių kūrimas ir priežiūra"],["🛡️","Kibernetinio saugumo ekspertas","Apsauga nuo atakų"],["🎨","UX dizaineris","Patogios programos"],["🚁","Dronų operatorius","Žemėlapiai, stebėsena"],["☀️","Saulės energetikos technikas","Žalioji energetika"],["🎮","Žaidimų kūrėjas","Interaktyvi pramoga"],["🎥","Turinio kūrėjas","Vaizdo įrašai ir socialiniai tinklai"]],
+ tips:[["📚","Mokykitės nuolat","Kursai, savarankiškas mokymasis."],["💡","Lavinkite kūrybiškumą","Tai, ko mašina dar nemoka."],["🗣️","Tobulinkite bendravimą","Komandinis darbas visada reikalingas."],["🧰","Išmokite naudotis DI","Jis taps įprastu darbo įrankiu."]],
+ end:[["🔄","Profesijos keičiasi","Pokyčiai vyksta nuolat."],["📚","Mokymasis visą gyvenimą","Persikvalifikavimas tampa norma."],["🤝","Žmogiškumas svarbus","Empatija ir kūryba sunkiai automatizuojamos."]]
+ };
+ var P=[["#e4572e","#f2a541"],["#17a398","#2e6fd8"],["#7b4bd6","#e4572e"],["#2a9d4a","#17a398"],["#2e6fd8","#7b4bd6"],["#f2a541","#e4572e"]];
+ function scene(e,n,g){
+  var c=P[n%P.length],id="s"+g+n;
+  return '<svg viewBox="0 0 300 150" aria-hidden="true"><defs><linearGradient id="'+id+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+c[0]+'"/><stop offset="1" stop-color="'+c[1]+'"/></linearGradient></defs><rect width="300" height="150" fill="url(#'+id+')"/><circle cx="255" cy="34" r="22" fill="#fff" opacity=".28"/><circle cx="40" cy="30" r="40" fill="#fff" opacity=".1"/><path d="M0 150V108Q60 78 120 106T240 100 300 112V150Z" fill="#000" opacity=".18"/><path d="M0 150V124Q80 100 150 122T300 120V150Z" fill="#000" opacity=".22"/><ellipse cx="150" cy="128" rx="46" ry="7" fill="#000" opacity=".25"/><text x="150" y="105" font-size="66" text-anchor="middle">'+e+'</text></svg>';
+ }
+ var gi=0;
+ [].forEach.call(document.querySelectorAll('[data-k]'),function(el){
+  gi++;
+  D[el.dataset.k].forEach(function(r,n){
+   var d=document.createElement('div');d.className='card';
+   d.innerHTML=scene(r[0],n,gi)+'<div class="t"><b>'+r[1]+'</b><span>'+r[2]+'</span></div>';
+   el.appendChild(d);
+  });
+ });
+ var s=[].slice.call(document.querySelectorAll('.slide')),i=0;
+ function go(n){
+  i=Math.max(0,Math.min(s.length-1,n));
+  s.forEach(function(x,k){x.classList.toggle('on',k===i);x.classList.toggle('past',k<i)});
+  document.getElementById('prev').disabled=i===0;
+  document.getElementById('next').disabled=i===s.length-1;
+  document.getElementById('cnt').textContent=(i+1)+" / "+s.length;
+  document.getElementById('pr').style.width=((i+1)/s.length*100)+"%";
+  s[i].scrollTop=0;
+ }
+ document.getElementById('prev').onclick=function(){go(i-1)};
+ document.getElementById('next').onclick=function(){go(i+1)};
+ document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight'||e.key===' ')go(i+1);
+  if(e.key==='ArrowLeft')go(i-1);
+ });
+ var x0=null;
+ document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+ document.addEventListener('touchend',function(e){
+  if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;
+  if(Math.abs(dx)>70)go(i+(dx<0?1:-1));x0=null;
+ });
+ go(0);
+})();
+</script>
 </body>
 </html>
