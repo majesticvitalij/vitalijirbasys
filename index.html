@@ -1,317 +1,2177 @@
 <!DOCTYPE html>
 <html lang="lt">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Nykstančios ir naujai atsirandančios profesijos</title>
-<style>
-:root{--bg:#f4f1ea;--card:#fff;--tx:#1b2430;--mut:#5b6673;--a:#e4572e;--b:#17a398;--line:#dcd6c8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10151c;--card:#1a222d;--tx:#eef1f5;--mut:#9aa7b6;--line:#2b3644}}
-:root[data-theme="dark"]{--bg:#10151c;--card:#1a222d;--tx:#eef1f5;--mut:#9aa7b6;--line:#2b3644}
-*{box-sizing:border-box;margin:0}
-html,body{height:100%}
-body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow:hidden}
-.deck{height:100%;position:relative}
-.slide{position:absolute;inset:0 0 calc(64px + env(safe-area-inset-bottom,0px));padding:clamp(16px,3.5vw,48px);display:flex;flex-direction:column;justify-content:center;opacity:0;visibility:hidden;transform:translateX(40px);transition:.45s;overflow-y:auto}
-.slide.on{opacity:1;visibility:visible;transform:none}
-.slide.past{transform:translateX(-40px)}
-h1{font-size:clamp(30px,6vw,64px);line-height:1.05;letter-spacing:-.02em}
-h2{font-size:clamp(24px,4vw,40px);margin-bottom:6px}
-.tag{display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--a);font-weight:700;margin-bottom:10px}
-.sub{color:var(--mut);font-size:clamp(14px,1.8vw,19px);max-width:70ch;margin:8px 0 18px;line-height:1.5}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
-.hero svg{width:100%;height:auto;border-radius:22px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:14px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:transform .2s}
-.card:hover{transform:translateY(-4px)}
-.card{position:relative}.card svg{display:block;width:100%;height:auto;transition:transform .5s}.card:hover svg{transform:scale(1.07)}.card .imgw{overflow:hidden}
-.card .t{padding:11px 14px 14px}
-.card b{display:block;font-size:15px;margin-bottom:2px}
-.card span{font-size:13px;color:var(--mut);line-height:1.4;display:block}
-.down b::before{content:"↓ ";color:var(--a)}
-.up b::before{content:"↑ ";color:var(--b)}
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
-.box h3{margin-bottom:8px}
-.box li{margin:7px 0 7px 18px;color:var(--mut);line-height:1.4}
-.bar{height:12px;border-radius:8px;background:var(--line);margin:5px 0 14px;overflow:hidden}
-.bar i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,var(--a),var(--b))}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;counter-reset:s}
-.step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 16px;counter-increment:s}
-.step::before{content:counter(s);position:absolute;top:-12px;left:14px;width:28px;height:28px;border-radius:50%;background:var(--a);color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px}
-.step b{display:block;margin-bottom:4px}.step span{color:var(--mut);font-size:14px;line-height:1.4}
-.authors{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-top:10px}
-.av{width:84px;height:84px;border-radius:50%;display:grid;place-items:center;font-size:30px;font-weight:700;color:#fff;margin:0 auto 12px}
-.authors .card{text-align:center;padding:22px}
-nav{position:fixed;left:0;right:0;bottom:0;height:calc(64px + env(safe-area-inset-bottom,0px));padding-bottom:env(safe-area-inset-bottom,0px);display:flex;align-items:center;justify-content:space-between;gap:12px;padding-inline:20px;background:var(--card);border-top:1px solid var(--line)}
-nav button{border:0;background:var(--a);color:#fff;font-size:15px;font-weight:600;padding:10px 18px;border-radius:12px;cursor:pointer}
-nav button:disabled{opacity:.35;cursor:default}
-.cnt{color:var(--mut);font-size:14px;min-width:54px;text-align:center}
-.bw{flex:1;max-width:340px;height:6px;border-radius:4px;background:var(--line);overflow:hidden}
-.bw i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--b));transition:.4s}
-@media(max-width:720px){.hero,.cols{grid-template-columns:1fr}.hero svg{order:-1;max-height:200px}}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.6. Šaldytuvas ir šilumos siurblys — Vitalij Žuravliov & Laurynas Basys 9c</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --kitchen-bg: url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=2000&q=85');
+      --surface-dark: #0c0d0e;
+      --surface-panel: rgba(18, 20, 23, 0.86);
+      --surface-card: rgba(24, 27, 32, 0.88);
+      --border-hairline: rgba(255, 255, 255, 0.14);
+      --border-strong: rgba(255, 255, 255, 0.28);
+      --accent-orange: #ff4f00; /* Teenage Engineering / Braun international orange */
+      --accent-cold: #38bdf8;
+      --accent-warm: #f59e0b;
+      --text-primary: #f4f4f0;
+      --text-muted: #a1a19a;
+    }
 
-.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
-.bg i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.38;animation:float 16s ease-in-out infinite}
-.bg i:nth-child(1){width:46vmax;height:46vmax;left:-12vmax;top:-14vmax;background:var(--a)}
-.bg i:nth-child(2){width:40vmax;height:40vmax;right:-12vmax;bottom:-10vmax;background:var(--b);animation-delay:-5s}
-.bg i:nth-child(3){width:28vmax;height:28vmax;left:40%;top:30%;background:#7b4bd6;opacity:.22;animation-delay:-10s}
-@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(5vmax,3vmax) scale(1.12)}66%{transform:translate(-3vmax,5vmax) scale(.94)}}
-@keyframes rise{from{opacity:0;transform:translateY(34px) scale(.96)}to{opacity:1;transform:none}}
-@keyframes drift{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-12px) rotate(1.2deg)}}
-@keyframes shine{to{background-position:200% center}}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(228,87,46,.5)}70%{box-shadow:0 0 0 12px rgba(228,87,46,0)}}
-h1,h2{background:linear-gradient(90deg,var(--tx),var(--a),var(--b),var(--tx));background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 7s linear infinite}
-.slide.on h1,.slide.on h2,.slide.on .tag,.slide.on .sub{animation:rise .7s both,shine 7s linear infinite}
-.slide.on .tag{animation:rise .6s both;background:none}
-.slide.on .sub{animation:rise .7s .15s both;background:none;color:var(--mut)}
-.slide .card,.slide .box,.slide .step{opacity:0}
-.slide.on .card,.slide.on .box,.slide.on .step{animation:rise .65s calc(.25s + var(--i,0)*90ms) both}
-.hero svg{animation:drift 7s ease-in-out infinite;box-shadow:0 30px 60px -20px rgba(0,0,0,.45)}
-.slide .bar i{transform:scaleX(0);transform-origin:left}
-.slide.on .bar i{transform:scaleX(1);transition:transform 1.5s .6s cubic-bezier(.2,.8,.2,1)}
-.card{cursor:pointer;align-self:start;box-shadow:0 6px 18px -8px rgba(0,0,0,.35)}
-.card:hover{box-shadow:0 18px 34px -12px rgba(0,0,0,.5)}
-.card .t{position:relative;padding-right:34px}
-.card .t::after{content:"+";position:absolute;right:11px;top:11px;width:20px;height:20px;border-radius:50%;background:var(--a);color:#fff;display:grid;place-items:center;font-size:15px;line-height:1;transition:transform .35s;animation:pulse 2.6s infinite}
-.card.open .t::after{transform:rotate(45deg);animation:none}
-.card:not(.hm) .t::after{display:none}
-.more{max-height:0;overflow:hidden;opacity:0;transition:max-height .5s,opacity .4s,margin .4s;font-size:13px;line-height:1.55;color:var(--tx);margin-top:0}
-.card.open .more{max-height:300px;opacity:1;margin-top:10px}
-.step:hover{transform:translateY(-5px);transition:.25s}
-nav button{transition:transform .2s,box-shadow .2s}nav button:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 18px -6px var(--a)}
-.hint{font-size:12px;color:var(--mut);margin-bottom:12px}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.slide .card,.slide .box,.slide .step{opacity:1}.slide .bar i{transform:none}}
-</style>
+    * {
+      box-sizing: border-box;
+      user-select: none;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--surface-dark);
+      color: var(--text-primary);
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-serif-editorial {
+      font-family: 'Instrument Serif', Georgia, serif;
+    }
+
+    .font-mono-tech {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* === ARCHITECTURAL GRID OVERLAY === */
+    .swiss-grid-lines {
+      background-size: 64px 64px;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+
+    /* === SLIDE DECK VIEWPORT === */
+    .slide-viewport {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(18px);
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                  visibility 0.45s;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 68px 40px 84px 40px;
+      overflow-y: auto;
+      z-index: 1;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      z-index: 10;
+    }
+
+    /* === BACKGROUNDS === */
+    .bg-space-editorial {
+      background: radial-gradient(ellipse at 50% 15%, #161920 0%, #090b0e 65%, #050608 100%);
+    }
+
+    .bg-kitchen-architectural {
+      background-image:
+        linear-gradient(180deg, rgba(10, 12, 14, 0.84) 0%, rgba(12, 14, 18, 0.78) 50%, rgba(10, 12, 15, 0.90) 100%),
+        var(--kitchen-bg);
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* === BESPOKE INDUSTRIAL PANELS (NO AI GLOW) === */
+    .arch-panel {
+      background: var(--surface-panel);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-hairline);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .arch-panel:hover {
+      border-color: var(--border-strong);
+    }
+
+    .arch-card-light {
+      background: rgba(245, 243, 238, 0.94);
+      color: #111315;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    /* === TACTILE MECHANICAL BUTTONS (TEENAGE ENGINEERING STYLE) === */
+    .mech-btn {
+      background: #1c1f24;
+      color: #f4f4f0;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 3px 0 #08090b, inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
+      cursor: pointer;
+    }
+
+    .mech-btn:hover:not(:disabled) {
+      background: #262a30;
+      border-color: rgba(255, 255, 255, 0.38);
+    }
+
+    .mech-btn:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #08090b;
+    }
+
+    .mech-btn-orange {
+      background: #ff4f00;
+      color: #ffffff;
+      border: 1px solid #ff783d;
+      box-shadow: 0 3px 0 #992f00, inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
+      cursor: pointer;
+    }
+
+    .mech-btn-orange:hover:not(:disabled) {
+      background: #ff5e14;
+    }
+
+    .mech-btn-orange:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #992f00;
+    }
+
+    /* === FLOATING AUTHOR PORTRAIT FRAMES (SLIDE 1) === */
+    .author-editorial-frame {
+      background: rgba(18, 20, 24, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 28px 64px rgba(0, 0, 0, 0.85);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+    }
+
+    .author-editorial-frame:hover {
+      border-color: #ffffff;
+    }
+
+    .float-slow-a {
+      animation: floatFrameA 5.5s ease-in-out infinite;
+    }
+
+    .float-slow-b {
+      animation: floatFrameB 6.2s ease-in-out infinite;
+    }
+
+    @keyframes floatFrameA {
+      0%, 100% { transform: translateY(-8px); }
+      50% { transform: translateY(10px); }
+    }
+
+    @keyframes floatFrameB {
+      0%, 100% { transform: translateY(10px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* === SUPREME CASH CANNONS === */
+    .supreme-cannon {
+      position: absolute;
+      bottom: 84px;
+      width: 190px;
+      height: 118px;
+      z-index: 25;
+      pointer-events: auto;
+      cursor: pointer;
+      filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.85));
+    }
+
+    .supreme-cannon-left {
+      left: 24px;
+      transform: rotate(-20deg);
+      animation: recoilLeft 0.55s ease-in-out infinite;
+    }
+
+    .supreme-cannon-right {
+      right: 24px;
+      transform: scaleX(-1) rotate(-20deg);
+      animation: recoilRight 0.55s ease-in-out infinite;
+    }
+
+    @keyframes recoilLeft {
+      0%, 100% { transform: rotate(-20deg) translate(0, 0); }
+      35% { transform: rotate(-25deg) translate(-8px, 4px); }
+      70% { transform: rotate(-18deg) translate(2px, -1px); }
+    }
+
+    @keyframes recoilRight {
+      0%, 100% { transform: scaleX(-1) rotate(-20deg) translate(0, 0); }
+      35% { transform: scaleX(-1) rotate(-25deg) translate(-8px, 4px); }
+      70% { transform: scaleX(-1) rotate(-18deg) translate(2px, -1px); }
+    }
+
+    .supreme-body {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      width: 144px;
+      height: 54px;
+      background: #da0010;
+      border-radius: 6px 10px 6px 6px;
+      border: 1.5px solid #ff5763;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.35);
+    }
+
+    .supreme-box-logo {
+      background: #da0010;
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-style: italic;
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: -0.6px;
+      padding: 2px 12px;
+      border: 1.5px solid #ffffff;
+    }
+
+    .supreme-nozzle {
+      position: absolute;
+      top: 22px;
+      right: 4px;
+      width: 22px;
+      height: 38px;
+      background: #1c1f24;
+      border-radius: 3px;
+      border: 1.5px solid #71717a;
+    }
+
+    .supreme-slot {
+      position: absolute;
+      top: 4px;
+      left: 34px;
+      width: 86px;
+      height: 12px;
+      background: #15803d;
+      border-radius: 4px 4px 0 0;
+      border: 1.5px solid #86efac;
+      border-bottom: none;
+    }
+
+    .supreme-grip {
+      position: absolute;
+      top: 64px;
+      left: 30px;
+      width: 36px;
+      height: 50px;
+      background: #b0000c;
+      border-radius: 3px 3px 8px 8px;
+      transform: skewX(-12deg);
+      border: 1.5px solid #ff5763;
+    }
+
+    .supreme-trigger {
+      position: absolute;
+      top: 66px;
+      left: 68px;
+      width: 16px;
+      height: 20px;
+      border: 3px solid #d4d4d8;
+      border-top: none;
+      border-left: none;
+      border-radius: 0 0 10px 0;
+    }
+
+    .flying-bill {
+      position: absolute;
+      width: 88px;
+      height: 42px;
+      border-radius: 3px;
+      background: #dcfce7;
+      border: 1.5px solid #14532d;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 12px;
+      color: #052e16;
+      pointer-events: none;
+      z-index: 20;
+      will-change: transform, opacity;
+    }
+
+    .flying-bill-badge {
+      background: #da0010;
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-style: italic;
+      font-weight: 800;
+      font-size: 9px;
+      padding: 1px 5px;
+    }
+
+    /* === ANIMATED REFRIGERANT FLOW PIPE (SLIDE 3) === */
+    .flow-pipe-cold, .flow-pipe-hot {
+      stroke-dasharray: 10 8;
+      animation: pipeFlow 1.2s linear infinite;
+    }
+
+    .turbo-flow .flow-pipe-cold,
+    .turbo-flow .flow-pipe-hot {
+      animation-duration: 0.42s;
+    }
+
+    @keyframes pipeFlow {
+      to { stroke-dashoffset: -36; }
+    }
+
+    /* === ETHER BUBBLES ANIMATION (SLIDE 2) === */
+    .ether-bubble {
+      animation: bubbleRise var(--b-dur, 1.3s) ease-in infinite;
+    }
+
+    @keyframes bubbleRise {
+      0% { transform: translateY(0) scale(0.6); opacity: 0.9; }
+      100% { transform: translateY(-70px) scale(1.25); opacity: 0; }
+    }
+
+    /* === FLIP CARDS FOR SLIDE 7 === */
+    .flip-card {
+      perspective: 1200px;
+      cursor: pointer;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-style: preserve-3d;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .flip-card-back {
+      transform: rotateY(180deg);
+      background: #f4f3ee;
+      color: #111315;
+      border: 1px solid #111315;
+    }
+
+    /* === ARIANHOOT GEOMETRIC BUTTONS === */
+    .kahoot-ans-btn {
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 10px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      text-align: left;
+      box-shadow: 0 5px 0 rgba(0, 0, 0, 0.55);
+      transition: transform 0.12s ease, filter 0.15s ease, opacity 0.2s ease;
+    }
+
+    .kahoot-ans-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    .kahoot-ans-btn:active:not(:disabled) {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.55);
+    }
+
+    .k-red { background: #d91b38; }
+    .k-blue { background: #1368ce; }
+    .k-yellow { background: #c78d00; }
+    .k-green { background: #237e0b; }
+
+    .k-shape {
+      width: 44px;
+      height: 44px;
+      flex: 0 0 44px;
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .k-correct-highlight {
+      outline: 3px solid #ffffff;
+      box-shadow: 0 0 0 6px #22c55e;
+    }
+
+    .k-wrong-highlight {
+      outline: 3px solid #ef4444;
+      opacity: 0.45;
+    }
+
+    .k-dimmed {
+      opacity: 0.22;
+      pointer-events: none;
+    }
+
+    /* Archival Sepia Portrait Styling for Karlas fon Lindė */
+    .linde-archival-photo {
+      filter: contrast(1.06) sepia(0.18);
+      transition: filter 0.35s ease, transform 0.35s ease;
+    }
+
+    .linde-archival-photo:hover {
+      filter: contrast(1.08) sepia(0.05);
+      transform: scale(1.03);
+    }
+
+    /* Custom Scrollbar */
+    .slide::-webkit-scrollbar { width: 5px; }
+    .slide::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.25); }
+  </style>
 </head>
-<body>
-<div class="bg" id="bg"><i></i><i></i><i></i></div>
-<div class="deck" id="deck">
+<body class="swiss-grid-lines">
 
-<section class="slide on">
- <div class="hero">
-  <div>
-   <span class="tag">Projektinis darbas</span>
-   <h1>Nykstančios ir naujai atsirandančios profesijos</h1>
-   <p class="sub">Kodėl vienos profesijos išnyksta, o kitos atsiranda, ir kaip tam pasiruošti.</p>
-   <p style="color:var(--mut);font-size:14px">Vitalij Žuravliov · Modestas Papirtis · Bernard Smirnov</p>
+  <!-- TOP ARCHITECTURAL SPECIFICATION BAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#0c0d0e]/95 backdrop-blur-md border-b border-white/15 px-4 sm:px-8 h-14 flex items-center justify-between">
+    <!-- Left Spec Index -->
+    <div class="flex items-center gap-4">
+      <div class="px-2.5 py-1 bg-[#ff4f00] text-white font-mono-tech font-bold text-xs tracking-wider">
+        SK. 2.6
+      </div>
+      <div class="hidden md:flex items-center gap-3 text-xs font-mono-tech tracking-wider text-zinc-300">
+        <span class="text-white font-semibold">ŠALDYTUVAS IR ŠILUMOS SIURBLYS</span>
+        <span class="text-zinc-600">/</span>
+        <span class="text-zinc-400">VITALIJ ŽURAVLIOV 9C & LAURYNAS BASYS 9C</span>
+      </div>
+    </div>
+
+    <!-- Center Slide Selector -->
+    <div class="flex items-center gap-2">
+      <select id="hud-slide-select" onchange="goToSlide(parseInt(this.value, 10))" class="bg-[#16181c] text-zinc-100 border border-white/20 hover:border-white/40 rounded px-3 py-1.5 text-xs font-mono-tech focus:outline-none cursor-pointer">
+        <option value="0">01 / AUTORIAI — VITALIJ 9C & LAURYNAS 9C</option>
+        <option value="1">02 / GARAVIMAS ŠALDO (ETERIO LABORATORIJA)</option>
+        <option value="2">03 / ŠALDYTUVO SANDARA IR CIKLAS</option>
+        <option value="3">04 / ORO KONDICIONIERIUS VS. ŠALDYTUVAS</option>
+        <option value="4">05 / ŠILUMOS SIURBLYS (COP 1:4)</option>
+        <option value="5">06 / ISTORIJA — KARLAS FON LINDĖ (1876)</option>
+        <option value="6">07 / UŽDUOČIŲ ATSAKYMAI (51 PSL. 1–12)</option>
+        <option value="7">08 / ARIANHOOT! VIKTORINA (∞ LAIKAS)</option>
+      </select>
+    </div>
+
+    <!-- Right Hardware Controls -->
+    <div class="flex items-center gap-2">
+      <button onclick="burstSupremeCash(35); playCashSound();" class="mech-btn-orange px-3 py-1.5 rounded text-xs font-mono-tech font-bold flex items-center gap-1.5" title="Šaudyti Supreme pinigais">
+        <span>SUPREME $100</span>
+      </button>
+
+      <button id="sound-toggle-btn" onclick="toggleSoundFX()" class="mech-btn w-8 h-8 rounded flex items-center justify-center" title="Garso efektai">
+        <i id="sound-icon" class="fa-solid fa-volume-high text-xs text-zinc-200"></i>
+      </button>
+
+      <button onclick="toggleFullscreen()" class="mech-btn w-8 h-8 rounded flex items-center justify-center" title="Pilnas ekranas">
+        <i class="fa-solid fa-expand text-xs text-zinc-200"></i>
+      </button>
+    </div>
+
+    <!-- Minimal 2px Progress Line -->
+    <div class="absolute bottom-0 left-0 right-0 h-[2px] bg-white/10">
+      <div id="top-progress" class="h-full bg-[#ff4f00] transition-all duration-300" style="width: 12.5%;"></div>
+    </div>
+  </header>
+
+  <!-- MAIN SLIDE VIEWPORT -->
+  <div class="slide-viewport" id="slide-viewport">
+
+    <!-- ===================================================================
+         SLIDE 1: AUTHORS + STARRY SKY + SUPREME MONEY CANNONS
+    ==================================================================== -->
+    <section class="slide bg-space-editorial active" data-slide="0">
+      <!-- Interactive Starry Sky Canvas -->
+      <canvas id="star-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+      <!-- Dynamic Flying Money Container -->
+      <div id="money-rain-layer" class="absolute inset-0 pointer-events-none overflow-hidden z-20"></div>
+
+      <!-- Left & Right Supreme Money Cannons -->
+      <div class="supreme-cannon supreme-cannon-left" onclick="burstSupremeCash(32); playCashSound();" title="Spausk ant Supreme pistoleto!">
+        <div class="supreme-slot"></div>
+        <div class="supreme-nozzle"></div>
+        <div class="supreme-grip"></div>
+        <div class="supreme-trigger"></div>
+        <div class="supreme-body"><span class="supreme-box-logo">Supreme</span></div>
+      </div>
+
+      <div class="supreme-cannon supreme-cannon-right" onclick="burstSupremeCash(32); playCashSound();" title="Spausk ant Supreme pistoleto!">
+        <div class="supreme-slot"></div>
+        <div class="supreme-nozzle"></div>
+        <div class="supreme-grip"></div>
+        <div class="supreme-trigger"></div>
+        <div class="supreme-body"><span class="supreme-box-logo">Supreme</span></div>
+      </div>
+
+      <!-- Main Slide 1 Content -->
+      <div class="relative z-10 max-w-7xl w-full mx-auto flex flex-col lg:flex-row items-center justify-between gap-10 h-full py-1">
+        
+        <!-- Left Editorial Title & Spec Column -->
+        <div class="w-full lg:w-5/12 flex flex-col justify-center items-start space-y-5">
+          <div class="inline-flex items-center gap-3 px-3 py-1 border border-white/20 bg-white/5 text-zinc-200 text-xs font-mono-tech uppercase tracking-widest">
+            <span class="w-2 h-2 rounded-full bg-[#ff4f00]"></span>
+            FIZIKA • 9 KLASĖ • SKYRIUS 2.6 (50–52 PSL.)
+          </div>
+
+          <h1 class="font-serif-editorial text-5xl sm:text-6xl xl:text-7xl font-normal text-white leading-[1.02] tracking-tight">
+            Šaldytuvas ir <br><span class="italic text-[#ff4f00]">šilumos siurblys</span>
+          </h1>
+
+          <p class="text-zinc-300 text-sm sm:text-base leading-relaxed max-w-md font-normal">
+            Medžiagos būsenų kitimas, šaldymo mašinos termodinaminis ciklas, šilumos siurblio naudingumo koeficientas (1:4), Karlo fon Lindės 1876 m. išradimas ir <b>Arianhoot!</b> viktorina.
+          </p>
+
+          <!-- Tactile Hardware Buttons -->
+          <div class="flex flex-wrap items-center gap-3 pt-1">
+            <button onclick="burstSupremeCash(45); playCashSound();" class="mech-btn-orange px-5 py-3 rounded text-xs sm:text-sm font-mono-tech font-bold tracking-wider uppercase flex items-center gap-2.5">
+              <i class="fa-solid fa-money-bill-1-wave"></i>
+              ŠAUDYTI PINIGAIS (SUPREME)
+            </button>
+
+            <button onclick="goToSlide(1)" class="mech-btn px-5 py-3 rounded text-xs sm:text-sm font-mono-tech font-bold uppercase flex items-center gap-2">
+              PRADĖTI PRISTATYMĄ <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+          </div>
+
+          <!-- Architectural Technical Spec Table -->
+          <div class="grid grid-cols-3 border border-white/20 bg-black/50 w-full max-w-md divide-x divide-white/20">
+            <div class="p-3">
+              <div class="font-mono-tech text-[10px] text-zinc-400 uppercase">ETERIO VIRIMAS</div>
+              <div class="font-mono-tech font-bold text-white text-lg mt-0.5">20 °C</div>
+            </div>
+            <div class="p-3">
+              <div class="font-mono-tech text-[10px] text-zinc-400 uppercase">SIURBLIO COP</div>
+              <div class="font-mono-tech font-bold text-[#ff4f00] text-lg mt-0.5">1 : 4</div>
+            </div>
+            <div class="p-3">
+              <div class="font-mono-tech text-[10px] text-zinc-400 uppercase">K. FON LINDĖ</div>
+              <div class="font-mono-tech font-bold text-white text-lg mt-0.5">1876 m.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Half-Screen Floating Author Portraits -->
+        <div class="w-full lg:w-7/12 grid grid-cols-1 sm:grid-cols-2 gap-6 items-center h-full max-h-[545px]">
+          
+          <!-- AUTHOR 1: Vitalij Žuravliov 9c (15849.jpg) -->
+          <div class="author-editorial-frame float-slow-a p-3 h-full flex flex-col justify-between group" onmousemove="tiltCard(event, this)" onmouseleave="resetTiltCard(this)">
+            <div class="flex items-center justify-between border-b border-white/15 pb-2 mb-2 font-mono-tech text-[11px] text-zinc-400">
+              <span>AUT. 01 // 9C KLASĖ</span>
+              <span class="text-amber-400 font-semibold">YOUTUBE 1M GOLD</span>
+            </div>
+
+            <div class="relative w-full h-[365px] sm:h-[385px] overflow-hidden bg-zinc-900 border border-white/15">
+              <img id="img-vitalij"
+                   src="15849.jpg"
+                   data-fallback="https://lh3.googleusercontent.com/gg/AJWXcNfknea4l9N9uporaeS1WZmeulCg1-8pbf2v5LoGpHeoLeit5R1rw-uFA_LezACrFgY-p38o7eXjnSDcydgBpqS_3_uP8TqiUUdkV1662mcjDGkTAu2QFMCONQ-QctxsJNIEfZdlIVcbDDWLNuF_UkyRtkgA87X_Fy_gqp7py2KkcFxYF3xegUHIJ_dwZg8S-uC61y5At2XKXa_pP9_cOJS3pBaAp_BjAIErxj8MNj3R5OFJw0iqd5DPnINdWIG7g5JOpJ9iHkO6FjmoYxr-vNBQLEZnsgrKlcQ=s0"
+                   onerror="handleAuthorImgError(this, 'vitalij')"
+                   alt="Vitalij Žuravliov 9c"
+                   class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105">
+
+              <!-- Optional Local Photo Swap -->
+              <label class="absolute bottom-2.5 right-2.5 px-2.5 py-1 bg-black/80 hover:bg-[#ff4f00] text-white font-mono-tech text-[10px] border border-white/25 cursor-pointer transition" title="Pasirinkti nuotrauką iš kompiuterio">
+                <i class="fa-solid fa-camera mr-1"></i> FOTO
+                <input type="file" accept="image/*" class="hidden" onchange="previewAuthorPhoto(event, 'img-vitalij')">
+              </label>
+            </div>
+
+            <div class="pt-3 flex items-baseline justify-between">
+              <h3 class="text-xl font-bold text-white tracking-tight">
+                Vitalij Žuravliov
+              </h3>
+              <span class="font-mono-tech text-xs font-bold text-[#ff4f00]">9C KL.</span>
+            </div>
+          </div>
+
+          <!-- AUTHOR 2: Laurynas Basys 9c (16057.jpg) -->
+          <div class="author-editorial-frame float-slow-b p-3 h-full flex flex-col justify-between group" onmousemove="tiltCard(event, this)" onmouseleave="resetTiltCard(this)">
+            <div class="flex items-center justify-between border-b border-white/15 pb-2 mb-2 font-mono-tech text-[11px] text-zinc-400">
+              <span>AUT. 02 // 9C KLASĖ</span>
+              <span class="text-zinc-200 font-semibold">RED CARPET • SLYVA</span>
+            </div>
+
+            <div class="relative w-full h-[365px] sm:h-[385px] overflow-hidden bg-zinc-900 border border-white/15">
+              <img id="img-laurynas"
+                   src="16057.jpg"
+                   data-fallback="https://lh3.googleusercontent.com/gg/AJWXcNdbLQFWk4M8D8FWpiUrbdf0Lkru9umbrjZmXFDXYuqLUZN9YfZfp4URbs8JAwpfBkSqREvkhHJ3uBLDy6BJQzw1MMOxvMSZVNgeJKp10QK45RlYe8NqBQs6aYYgH5rOd_sqAv3BsmLEJ9RLnwe6QTXMaT3jneldJfSqzHPFQ94t_w1-Ve1QyFNdzuG8goAfMzv7KXgDfSKDCVocVdG8aY2KGtZJnqPpELlbRsuBfhKnSDwGwdC531l48hQw_OvFjyVFcNcI573HWfsorO3QOtqe9tACuW08G_Y=s0"
+                   onerror="handleAuthorImgError(this, 'laurynas')"
+                   alt="Laurynas Basys 9c"
+                   class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105">
+
+              <!-- Optional Local Photo Swap -->
+              <label class="absolute bottom-2.5 right-2.5 px-2.5 py-1 bg-black/80 hover:bg-[#ff4f00] text-white font-mono-tech text-[10px] border border-white/25 cursor-pointer transition" title="Pasirinkti nuotrauką iš kompiuterio">
+                <i class="fa-solid fa-camera mr-1"></i> FOTO
+                <input type="file" accept="image/*" class="hidden" onchange="previewAuthorPhoto(event, 'img-laurynas')">
+              </label>
+            </div>
+
+            <div class="pt-3 flex items-baseline justify-between">
+              <h3 class="text-xl font-bold text-white tracking-tight">
+                Laurynas Basys
+              </h3>
+              <span class="font-mono-tech text-xs font-bold text-[#ff4f00]">9C KL.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SLIDE 2: GARAVIMAS ŠALDO (INTERACTIVE VACUUM ETHER LAB)
+    ==================================================================== -->
+    <section class="slide bg-kitchen-architectural" data-slide="1">
+      <div class="max-w-7xl w-full mx-auto flex flex-col gap-5">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-white/20 pb-3">
+          <div>
+            <span class="font-mono-tech text-xs text-[#ff4f00] uppercase tracking-widest">02 // VADOVĖLIO 50 PSL. • FIZIKINIS EKSPERIMENTAS</span>
+            <h2 class="font-serif-editorial text-4xl sm:text-5xl text-white mt-1">Garavimas šaldo</h2>
+          </div>
+          <p class="text-zinc-300 text-sm max-w-md font-mono-tech">
+            Slėgio mažinimas pažemina skysčio virimo temperatūrą.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          <!-- Left Explanation Cards -->
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="arch-panel p-5 flex flex-col justify-between">
+              <div class="font-mono-tech text-xs text-zinc-400 border-b border-white/10 pb-2 mb-3 flex justify-between">
+                <span>01 / SLĖGIO ĮTAKA</span>
+                <span>P ↓ → T_vir ↓</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-white mb-2">Kaip priversti skystį virti be kaitinimo?</h3>
+                <p class="text-zinc-300 text-sm leading-relaxed">
+                  Norint išgarinti skystį jam reikia suteikti šilumos, o <b>keičiant išorinį slėgį (spaudimą)</b> galima pakeisti skysčio virimo temperatūrą. Sumažinus slėgį virimo temperatūra krenta.
+                </p>
+              </div>
+            </div>
+
+            <div class="arch-panel p-5 flex flex-col justify-between">
+              <div class="font-mono-tech text-xs text-zinc-400 border-b border-white/10 pb-2 mb-3 flex justify-between">
+                <span>02 / ETERIO BANDYMAS</span>
+                <span>35 °C → 20 °C</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-white mb-2">Virimas kambario temperatūroje</h3>
+                <p class="text-zinc-300 text-sm leading-relaxed">
+                  Eterio virimo temperatūra normaliomis sąlygomis yra <b>35 °C</b>. Jei kolbą sandariai uždarysime ir siurbsime iš jos orą, eteris užvirs net <b>20 °C</b> temperatūroje.
+                </p>
+              </div>
+            </div>
+
+            <div class="arch-panel p-5 sm:col-span-2 flex flex-col sm:flex-row items-start sm:items-center gap-5 border-l-4 border-l-[#38bdf8]">
+              <div class="px-3 py-2 bg-[#38bdf8]/15 border border-[#38bdf8]/40 font-mono-tech text-xs text-[#38bdf8] shrink-0">
+                ŠERKŠNO EFEKTAS
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-white mb-1">Kodėl kolba iš išorės pasidengia šerkšnu?</h3>
+                <p class="text-zinc-300 text-sm leading-relaxed">
+                  Verdant skysčiui iš jo išlekia <b>pačios greičiausios molekulės</b> ir skysčio temperatūra mažėja — energiją, kurios reikia garinimui, skystis ima iš jį supančios aplinkos.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Interactive SVG Ether Flask Simulator -->
+          <div class="lg:col-span-5 arch-panel p-5 flex flex-col justify-between">
+            <div class="flex items-center justify-between border-b border-white/15 pb-2.5">
+              <span class="font-mono-tech text-xs text-zinc-300 uppercase">
+                SIMULIATORIUS // ETERIO KOLBA
+              </span>
+              <span id="ether-status-badge" class="px-2.5 py-0.5 bg-zinc-800 border border-white/20 text-zinc-200 font-mono-tech text-xs">
+                100 kPa (Normalus)
+              </span>
+            </div>
+
+            <!-- Animated SVG Flask -->
+            <div class="my-3 relative h-52 bg-[#090a0c] border border-white/15 flex items-center justify-around px-4 overflow-hidden">
+              <div id="frost-overlay" class="absolute inset-0 bg-gradient-to-t from-sky-300/30 via-sky-200/10 to-transparent opacity-0 transition-opacity duration-500 pointer-events-none"></div>
+
+              <svg viewBox="0 0 180 180" class="w-40 h-40 z-10">
+                <rect x="76" y="14" width="28" height="16" rx="2" fill="#3f3f46" stroke="#a1a1aa" stroke-width="1.5"/>
+                <path d="M90 14 L90 4 L155 4" fill="none" stroke="#38bdf8" stroke-width="4"/>
+                <text x="112" y="18" fill="#38bdf8" font-family="JetBrains Mono" font-size="8.5">→ SIURBLYS</text>
+
+                <path d="M78 30 L78 65 L35 145 Q30 158 45 158 L135 158 Q150 158 145 145 L102 65 L102 30 Z"
+                      fill="rgba(24, 24, 27, 0.8)" stroke="#d4d4d8" stroke-width="2.5"/>
+
+                <path d="M51 115 L129 115 L143 145 Q148 155 135 155 L45 155 Q32 155 37 145 Z"
+                      fill="rgba(56, 189, 248, 0.4)" stroke="#38bdf8" stroke-width="1.5"/>
+
+                <g id="ether-bubbles-group" style="opacity: 0; transition: opacity 0.3s;">
+                  <circle cx="65" cy="145" r="4" fill="#e0f2fe" class="ether-bubble" style="--b-dur: 0.9s;"/>
+                  <circle cx="85" cy="148" r="5" fill="#ffffff" class="ether-bubble" style="--b-dur: 0.7s;"/>
+                  <circle cx="105" cy="145" r="3.5" fill="#bae6fd" class="ether-bubble" style="--b-dur: 1.1s;"/>
+                  <circle cx="95" cy="140" r="4.5" fill="#7dd3fc" class="ether-bubble" style="--b-dur: 0.8s;"/>
+                </g>
+
+                <g id="svg-frost-crystals" style="opacity: 0; transition: opacity 0.4s;">
+                  <text x="45" y="172" fill="#bae6fd" font-family="JetBrains Mono" font-size="10" font-weight="bold">
+                    [APŠERKŠNIJĘS PAVIRŠIUS]
+                  </text>
+                </g>
+              </svg>
+
+              <div class="z-10 flex flex-col items-start space-y-2 max-w-[185px]">
+                <div class="font-mono-tech text-[10px] text-zinc-400 uppercase">PARAMETRAI:</div>
+                <div class="font-mono-tech text-xl font-bold text-white" id="ether-temp-readout">
+                  T_vir = 35 °C
+                </div>
+                <p id="ether-desc-readout" class="text-xs text-zinc-300 leading-relaxed">
+                  Kambario temperatūroje (20 °C) eteris dar neverda. Sumažink slėgį!
+                </p>
+                <button onclick="pumpVacuumStep()" class="mech-btn-orange px-3 py-2 rounded text-xs font-mono-tech font-bold">
+                  SIURBTI ORĄ (-25 kPa)
+                </button>
+              </div>
+            </div>
+
+            <!-- Slider Control -->
+            <div class="space-y-1.5">
+              <div class="flex justify-between text-xs font-mono-tech text-zinc-300">
+                <span>SLĖGIS KOLBOJE:</span>
+                <span id="pressure-val-label" class="text-[#38bdf8] font-bold">100 kPa</span>
+              </div>
+              <input id="pressure-slider" type="range" min="20" max="100" value="100"
+                     oninput="updateEtherSim(this.value)"
+                     class="w-full accent-[#ff4f00] cursor-pointer h-1.5 bg-zinc-700">
+              <div class="flex justify-between text-[10px] font-mono-tech text-zinc-400">
+                <span>20 kPa (Verda 20 °C)</span>
+                <span>100 kPa (Normalus)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SLIDE 3: ŠALDYTUVO SANDARA IR VEIKIMAS (ANIMATED SVG LOOP)
+    ==================================================================== -->
+    <section class="slide bg-kitchen-architectural" data-slide="2">
+      <div class="max-w-7xl w-full mx-auto flex flex-col gap-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-white/20 pb-3">
+          <div>
+            <span class="font-mono-tech text-xs text-[#ff4f00] uppercase tracking-widest">03 // VADOVĖLIO 50 PSL. • UŽDARAS ŠALDYMO RATAS</span>
+            <h2 class="font-serif-editorial text-4xl sm:text-5xl text-white mt-1">Šaldytuvo sandara ir ciklas</h2>
+          </div>
+          <button id="turbo-fridge-btn" onclick="toggleFridgeTurbo()" class="mech-btn px-3.5 py-1.5 rounded text-xs font-mono-tech font-bold">
+            GREITIS: NORMALUS
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <!-- 4 Interactive Component Cards -->
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            
+            <div onclick="selectFridgePart(0)" id="part-card-0" class="arch-panel p-4 cursor-pointer border-2 border-[#ff4f00]">
+              <div class="flex items-center justify-between mb-2 font-mono-tech text-xs text-zinc-400">
+                <span>MAZGAS 01</span>
+                <span class="text-[#ff4f00] font-bold">AUKŠTAS SLĖGIS</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-1">1. Kompresorius</h3>
+              <p class="text-zinc-300 text-xs leading-relaxed">
+                Su varikliu sujungtas <i>compressor</i> (suspaudėjas) sukuria labai didelį slėgį, suspaudžia garus ir pumpuoja juos vamzdeliais į kondensatorių.
+              </p>
+            </div>
+
+            <div onclick="selectFridgePart(1)" id="part-card-1" class="arch-panel p-4 cursor-pointer">
+              <div class="flex items-center justify-between mb-2 font-mono-tech text-xs text-zinc-400">
+                <span>MAZGAS 02</span>
+                <span class="text-amber-400 font-bold">ŠILUMOS ATIDAVIMAS</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-1">2. Kondensatorius (Galinė sienelė)</h3>
+              <p class="text-zinc-300 text-xs leading-relaxed">
+                Išraizgytas šaldytuvo galinėje sienelėje. Jame skysčio garai <b>kondensuojasi</b> ir išskiria į aplinką kondensacijos metu išsiskyrusią energiją.
+              </p>
+            </div>
+
+            <div onclick="selectFridgePart(2)" id="part-card-2" class="arch-panel p-4 cursor-pointer">
+              <div class="flex items-center justify-between mb-2 font-mono-tech text-xs text-zinc-400">
+                <span>MAZGAS 03</span>
+                <span class="text-zinc-300 font-bold">SLĖGIO KRITIMAS</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-1">3. Išsiplėtimo vožtuvas</h3>
+              <p class="text-zinc-300 text-xs leading-relaxed">
+                Skystis pasiekia išsiplėtimo vožtuvą ir pakliūva į garintuvą, kuriame slėgis yra žemas.
+              </p>
+            </div>
+
+            <div onclick="selectFridgePart(3)" id="part-card-3" class="arch-panel p-4 cursor-pointer">
+              <div class="flex items-center justify-between mb-2 font-mono-tech text-xs text-zinc-400">
+                <span>MAZGAS 04</span>
+                <span class="text-[#38bdf8] font-bold">ŠALDIKLIS VIRŠUJE</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-1">4. Garintuvas (Viršutinėje dalyje)</h3>
+              <p class="text-zinc-300 text-xs leading-relaxed">
+                Žemo slėgio vamzdeliuose skystis užverda ir smarkiai garuoja imdamas energiją iš šaldytuve esančių produktų, po to vėl grįžta į kompresorių.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Interactive Animated SVG Refrigerator Loop -->
+          <div class="lg:col-span-5 arch-panel p-5 flex flex-col justify-between">
+            <div class="flex items-center justify-between border-b border-white/15 pb-2 mb-2">
+              <span class="font-mono-tech text-xs text-zinc-300">SCHEMA // ŠALDYMO KONTŪRAS</span>
+              <span class="font-mono-tech text-[11px] text-[#ff4f00] font-bold">NEPAŽEISTI VAMZDELIŲ!</span>
+            </div>
+
+            <div id="fridge-svg-wrap" class="my-1 p-3 bg-[#090a0c] border border-white/15 flex items-center justify-center">
+              <svg viewBox="0 0 320 200" class="w-full h-44">
+                <rect x="20" y="12" width="175" height="176" rx="4" fill="rgba(24,24,27,0.8)" stroke="#71717a" stroke-width="1.5"/>
+                <rect x="30" y="22" width="155" height="52" rx="3" fill="rgba(56,189,248,0.1)" stroke="#38bdf8" stroke-dasharray="4 3"/>
+                <text x="38" y="38" fill="#38bdf8" font-family="JetBrains Mono" font-size="8.5" font-weight="bold">4. GARINTUVAS (ŠALDIKLIS)</text>
+                <text x="38" y="56" fill="#bae6fd" font-family="JetBrains Mono" font-size="8">Šaltas oras leidžiasi ↓</text>
+
+                <path d="M55 150 L55 50 L165 50 L165 150" fill="none" stroke="#38bdf8" stroke-width="4.5" class="flow-pipe-cold"/>
+                <path d="M165 150 L265 150 L265 35 L55 35 L55 150" fill="none" stroke="#ff4f00" stroke-width="4.5" class="flow-pipe-hot"/>
+
+                <rect x="44" y="84" width="22" height="22" rx="3" fill="#27272a" stroke="#fff" stroke-width="1.5"/>
+                <text x="51" y="99" fill="#fff" font-family="JetBrains Mono" font-size="10" font-weight="bold">3</text>
+
+                <rect x="132" y="136" width="66" height="30" rx="3" fill="#ff4f00" stroke="#fff" stroke-width="1.5"/>
+                <text x="140" y="155" fill="#fff" font-family="JetBrains Mono" font-size="9" font-weight="bold">1. KOMP.</text>
+
+                <rect x="206" y="75" width="106" height="44" rx="3" fill="#18181b" stroke="#ff4f00"/>
+                <text x="212" y="92" fill="#ff4f00" font-family="JetBrains Mono" font-size="8" font-weight="bold">2. KONDENSATORIUS</text>
+                <text x="212" y="107" fill="#d4d4d8" font-family="JetBrains Mono" font-size="8">Šiluma į aplinką →</text>
+              </svg>
+            </div>
+
+            <div id="fridge-inspector" class="p-3.5 bg-white/5 border border-white/15 mt-2">
+              <h4 id="inspector-title" class="font-mono-tech font-bold text-white text-xs uppercase mb-1">
+                1. KOMPRESORIUS — PRIVERSTINIS ŠILUMOS TEKĖJIMAS
+              </h4>
+              <p id="inspector-text" class="text-xs text-zinc-300 leading-relaxed">
+                Kompresoriumi priverčiame šilumą tekėti iš vėsesnių vietų į šiltesnes. Svarbu transportuojant ar valant šaldytuvą nepažeisti vamzdelių — išgaravus skysčiui šaldytuvas neveiks.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SLIDE 4: ORO KONDICIONIERIUS IR ŠILUMOS SIURBLYS (P. 50-51)
+    ==================================================================== -->
+    <section class="slide bg-kitchen-architectural" data-slide="3">
+      <div class="max-w-7xl w-full mx-auto flex flex-col gap-5">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-white/20 pb-3">
+          <div>
+            <span class="font-mono-tech text-xs text-[#ff4f00] uppercase tracking-widest">04 // VADOVĖLIO 50–51 PSL. • PATALPŲ VĖSINIMAS</span>
+            <h2 class="font-serif-editorial text-4xl sm:text-5xl text-white mt-1">Oro kondicionierius ir šaldytuvas</h2>
+          </div>
+          <p class="text-zinc-300 text-xs sm:text-sm font-mono-tech">
+            4 šaldytuvo dalys + ventiliatorius = oro kondicionierius.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          <div class="lg:col-span-6 arch-panel p-6 flex flex-col justify-between">
+            <div>
+              <div class="font-mono-tech text-xs text-[#38bdf8] uppercase mb-2">SANDARA IR VEIKIMO PRINCIPAS</div>
+              <h3 class="text-2xl font-bold text-white mb-4">
+                Kaip šaldytuvo dalys virsta kondicionieriumi?
+              </h3>
+              <ul class="space-y-3 text-zinc-300 text-sm leading-relaxed">
+                <li class="flex items-start gap-3">
+                  <span class="font-mono-tech text-xs text-[#ff4f00] font-bold mt-0.5">01</span>
+                  <span>Jeigu tas pačias keturias pagrindines šaldytuvo dalis (kompresorių, garintuvą, kondensatorių ir išsiplėtimo vožtuvą) sujungsime šiek tiek kitaip ir dar prijungsime <b>ventiliatorių</b>, gausime oro kondicionierių.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-mono-tech text-xs text-[#ff4f00] font-bold mt-0.5">02</span>
+                  <span>Garintuve garuojantis skystis ima šilumą iš aplinkos. Oras aplink ventiliatorių atvėsta ir nukreipiamas į norimą patalpos vietą.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="font-mono-tech text-xs text-[#ff4f00] font-bold mt-0.5">03</span>
+                  <span>Kondicionieriaus kondensatorius yra išorėje (lauke), todėl iš kambario paimta šiluma pašalinama iš pastato.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Interactive Room Experiment -->
+            <div class="mt-5 p-4 bg-[#090a0c] border border-white/15">
+              <div class="flex items-center justify-between mb-3">
+                <span class="font-mono-tech text-xs text-zinc-400">KAMBARIO EKSPERIMENTAS:</span>
+                <span id="room-temp-badge" class="px-2.5 py-0.5 bg-[#38bdf8]/20 text-[#38bdf8] font-mono-tech font-bold text-xs">
+                  T_kamb = 19 °C (VĖSTA)
+                </span>
+              </div>
+              <div class="grid grid-cols-2 gap-2.5 mb-3">
+                <button id="exp-ac-btn" onclick="setRoomExperiment('ac')" class="mech-btn-orange py-2 px-3 rounded font-mono-tech font-bold text-xs">
+                  ORO KONDICIONIERIUS
+                </button>
+                <button id="exp-fridge-btn" onclick="setRoomExperiment('open-fridge')" class="mech-btn py-2 px-3 rounded font-mono-tech font-bold text-xs">
+                  ATIDARYTAS ŠALDYTUVAS
+                </button>
+              </div>
+              <p id="room-exp-text" class="text-xs text-zinc-300 leading-relaxed">
+                Kondicionierius paima šilumą iš kambario ir išmeta ją į lauką — kambarys vėsta.
+              </p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 arch-panel p-6 flex flex-col justify-between">
+            <div>
+              <div class="font-mono-tech text-xs text-amber-400 uppercase mb-2">SISTEMINIS PALYGINIMAS (7 IR 9 UŽD.)</div>
+              <h3 class="text-2xl font-bold text-white mb-4">
+                Trys įrenginiai — vienas fizikinis ciklas
+              </h3>
+
+              <div class="space-y-3 text-sm">
+                <div class="p-3.5 bg-white/5 border border-white/10">
+                  <div class="font-mono-tech font-bold text-white text-xs uppercase mb-1">ŠALDYTUVAS VS. KONDICIONIERIUS (7 UŽD.)</div>
+                  <p class="text-zinc-300 text-xs sm:text-sm">
+                    Šaldytuvas vėsina uždarą izoliuotą kamerą, o šilumą atiduoda virtuvei. Kondicionierius turi <b>ventiliatorių</b>, vėsina viso kambario orą, o šilumą išmeta į lauką.
+                  </p>
+                </div>
+
+                <div class="p-3.5 bg-white/5 border border-white/10">
+                  <div class="font-mono-tech font-bold text-[#ff4f00] text-xs uppercase mb-1">ŠALDYTUVAS VS. ŠILUMOS SIURBLYS (9 UŽD.)</div>
+                  <p class="text-zinc-300 text-xs sm:text-sm">
+                    Šaldytuvo tikslas — atšaldyti kamerą (naudojamas šaltas garintuvas), o <b>šilumos siurblio</b> tikslas — <b>šildyti namus</b> ir vandenį (naudojama kondensatoriaus išskiriama šiluma, paimta iš grunto, vandens ar oro).
+                  </p>
+                </div>
+
+                <div class="p-3.5 bg-white/5 border border-white/10">
+                  <div class="font-mono-tech font-bold text-[#38bdf8] text-xs uppercase mb-1">KODĖL ATIDARIUS ŠALDYTUVĄ KAMBARYS ŠYLA? (1 UŽD.)</div>
+                  <p class="text-zinc-300 text-xs sm:text-sm">
+                    Galinėje sienelėje esantis kondensatorius į tą patį kambarį atiduoda tiek pat šilumos, kiek paėmė iš kameros, <b>plius elektros variklio (kompresoriaus) išskirtą šilumą</b>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SLIDE 5: ŠILUMOS SIURBLYS IR NAUDINGUMO KOEFICIENTAS (COP 1:4)
+    ==================================================================== -->
+    <section class="slide bg-kitchen-architectural" data-slide="4">
+      <div class="max-w-7xl w-full mx-auto flex flex-col gap-5">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-white/20 pb-3">
+          <div>
+            <span class="font-mono-tech text-xs text-[#ff4f00] uppercase tracking-widest">05 // VADOVĖLIO 51 PSL. • ENERGIJOS BALANSAS</span>
+            <h2 class="font-serif-editorial text-4xl sm:text-5xl text-white mt-1">Šilumos siurblys (COP 1 : 4)</h2>
+          </div>
+          <p class="text-zinc-300 text-xs sm:text-sm font-mono-tech">
+            1 kWh elektros energijos → 4 kWh šilumos namams šildyti.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          <div class="lg:col-span-6 space-y-4 flex flex-col justify-between">
+            <div class="arch-panel p-5">
+              <div class="font-mono-tech text-xs text-zinc-400 mb-1">APIBRĖŽIMAS (8 UŽD.)</div>
+              <h3 class="text-lg font-bold text-white mb-2">Kas yra šilumos siurblys?</h3>
+              <p class="text-zinc-300 text-sm leading-relaxed">
+                Įrenginys, kuris ima šilumą iš aplinkos (<b>grunto, nuotekų, aplinkos oro, greta esančio ežero ar jūros</b>) ir panaudoja ją patalpoms bei vandeniui šildyti nedeginant jokio iškastinio kuro. Žiemą, kai ežero vanduo užšąla, įjungiamas papildomas šilumos šaltinis.
+              </p>
+            </div>
+
+            <div class="arch-panel p-5 border-l-4 border-l-[#ff4f00]">
+              <div class="font-mono-tech text-xs text-[#ff4f00] mb-1">VADOVĖLIO DUOMENYS (51 PSL.)</div>
+              <h3 class="text-lg font-bold text-white mb-1.5">108 MJ elektros → 360 MJ šilumos</h3>
+              <p class="text-zinc-300 text-sm leading-relaxed">
+                Paprasčiausi šilumos siurbliai, kuriems energija (apytiksliai <b>108 MJ</b>) reikalinga tik kompresoriui varyti, pateikia apie <b>360 MJ</b> šiluminės energijos pastatams šildyti ir karštam vandeniui ruošti.
+              </p>
+            </div>
+
+            <div class="arch-panel p-5 flex items-center justify-between">
+              <div>
+                <div class="font-mono-tech text-xs text-zinc-400">NAUDINGUMO KOEFICIENTAS = 4</div>
+                <div class="text-sm text-zinc-200 mt-1">Elektros sąnaudų ir pagamintos šilumos santykis:</div>
+              </div>
+              <div class="font-mono-tech text-4xl font-bold text-[#ff4f00]">1 : 4</div>
+            </div>
+          </div>
+
+          <!-- Interactive COP 1:4 Calculator -->
+          <div class="lg:col-span-6 arch-panel p-6 flex flex-col justify-between">
+            <div class="flex items-center justify-between border-b border-white/15 pb-3">
+              <span class="font-mono-tech text-xs text-white uppercase">SKAIČIUOKLĖ // ŠILUMOS SIURBLIO BALANSAS</span>
+              <span class="font-mono-tech text-xs text-zinc-400">COP = 4.0</span>
+            </div>
+
+            <div class="my-4 space-y-5">
+              <div>
+                <div class="flex justify-between text-xs font-mono-tech mb-1.5">
+                  <span class="text-zinc-300">1. ELEKTROS ENERGIJA KOMPRESORIUI:</span>
+                  <span id="elec-kwh-val" class="text-[#38bdf8] font-bold">1 kWh (108 MJ pavyzdys)</span>
+                </div>
+                <div class="w-full h-3.5 bg-zinc-900 border border-white/15">
+                  <div id="elec-bar" class="h-full bg-[#38bdf8] transition-all duration-300" style="width: 25%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-mono-tech mb-1.5">
+                  <span class="text-zinc-300">2. IŠ GRUNTO / VANDENS PAIMTA ŠILUMA:</span>
+                  <span id="env-kwh-val" class="text-emerald-400 font-bold">+3 kWh</span>
+                </div>
+                <div class="w-full h-3.5 bg-zinc-900 border border-white/15">
+                  <div id="env-bar" class="h-full bg-emerald-500 transition-all duration-300" style="width: 75%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-mono-tech mb-1.5">
+                  <span class="text-white font-bold">3. BENDRA NAMUI PERDUOTA ŠILUMA:</span>
+                  <span id="heat-kwh-val" class="text-[#ff4f00] text-base font-bold">4 kWh (360 MJ pavyzdys)</span>
+                </div>
+                <div class="w-full h-4 bg-zinc-900 border border-white/25">
+                  <div id="heat-bar" class="h-full bg-[#ff4f00] transition-all duration-300" style="width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-2 pt-3 border-t border-white/15">
+              <label class="font-mono-tech text-xs text-zinc-300 block">
+                SUVARTOTA ELEKTROS ENERGIJA (1 – 10 kWh):
+              </label>
+              <input type="range" min="1" max="10" value="1" step="1"
+                     oninput="updateCopCalc(this.value)"
+                     class="w-full accent-[#ff4f00] cursor-pointer h-1.5 bg-zinc-700">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SLIDE 6: ĮDOMIOJI FIZIKA — KARLAS FON LINDĖ PORTRAIT + LEDO SPINTA
+    ==================================================================== -->
+    <section class="slide bg-kitchen-architectural" data-slide="5">
+      <div class="max-w-7xl w-full mx-auto flex flex-col gap-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-white/20 pb-3">
+          <div>
+            <span class="font-mono-tech text-xs text-[#ff4f00] uppercase tracking-widest">06 // ĮDOMIOJI FIZIKA • VADOVĖLIO 52 PSL.</span>
+            <h2 class="font-serif-editorial text-4xl sm:text-5xl text-white mt-1">Kol nebuvo elektrinių šaldytuvų</h2>
+          </div>
+          <p class="text-zinc-300 text-xs sm:text-sm font-mono-tech">
+            Ledo spinta, Karlas fon Lindė (1876 m.) ir požeminė ledainė.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+          
+          <!-- Left Card: Ledo spinta (4 cols) -->
+          <div class="lg:col-span-4 arch-panel p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between border-b border-white/15 pb-2 mb-3 font-mono-tech text-xs text-zinc-400">
+                <span>01 / PRIEŠ ~150 METŲ</span>
+                <span>2–3 PAROS</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2.5">Ledo spinta</h3>
+              <ul class="space-y-2 text-zinc-300 text-xs sm:text-sm leading-relaxed">
+                <li>• <b>Izoliacija:</b> Dvigubos sienelės, užpildytos <b>sausomis pjuvenomis</b>.</li>
+                <li>• <b>Sandara:</b> Viršutinėje dalyje gulėjo ledo gabalai ir geriamojo vandens indas, viduryje — lentynėlės, apačioje — latakas tirpstančio ledo vandeniui.</li>
+                <li>• <b>2 trūkumai:</b> Viduje nuolat būdavo drėgna (kaupėsi bakterijos ir pelėsiai), o pavasarį ir vasarą reikėdavo saugoti žiemą paruoštą ledą (išsilaikydavo iki 3 metų).</li>
+              </ul>
+            </div>
+            <div class="mt-3 pt-2.5 border-t border-white/15 font-mono-tech text-[11px] text-zinc-400">
+              Šaltas tirpstančio ledo vanduo tekėdavo į apatinį indą.
+            </div>
+          </div>
+
+          <!-- Center Featured Archival Card: KARLAS FON LINDĖ WITH UPLOADED PHOTO (4 cols) -->
+          <div class="lg:col-span-4 arch-card-light p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between border-b border-black/15 pb-2 mb-2.5 font-mono-tech text-[11px] text-zinc-700">
+              <span>ARCHYVAS // 1876 M. IŠRADĖJAS</span>
+              <span class="font-bold text-[#ff4f00]">1842–1934</span>
+            </div>
+
+            <!-- Uploaded Portrait of Carl von Linde -->
+            <div class="relative w-full h-56 overflow-hidden bg-zinc-800 border border-black/20 mb-3">
+              <img id="img-linde"
+                   src="e76e23bf98_50142040_von-linde-1000.jpg"
+                   data-fallback="https://upload.wikimedia.org/wikipedia/commons/2/26/Carl_von_Linde_1868.jpg"
+                   onerror="handleLindeImgError(this)"
+                   alt="Karlas fon Lindė (1842–1934)"
+                   class="w-full h-full object-cover object-top linde-archival-photo">
+
+              <div class="absolute bottom-2 left-2 px-2 py-0.5 bg-black/80 text-white font-mono-tech text-[10px]">
+                1876 m. • Šaldymo mašina
+              </div>
+
+              <!-- Optional Local File Picker if opened offline -->
+              <label class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/80 hover:bg-[#ff4f00] text-white font-mono-tech text-[10px] cursor-pointer transition" title="Pasirinkti Karlo fon Lindės nuotrauką">
+                <i class="fa-solid fa-camera"></i>
+                <input type="file" accept="image/*" class="hidden" onchange="previewAuthorPhoto(event, 'img-linde')">
+              </label>
+            </div>
+
+            <div>
+              <h3 class="font-serif-editorial text-3xl text-zinc-950 leading-none mb-1.5">
+                Karlas fon Lindė
+              </h3>
+              <p class="text-zinc-800 text-xs sm:text-sm leading-relaxed">
+                Nuo <b>1876 m.</b> natūralų ledą ėmė keisti dirbtinis. Vokiečių fizikas ir inžinierius <b>Karlas fon Lindė (1842–1934)</b> sukūrė šaldytuvo pirmtaką — pirmą galingą ledo šaldymo mašiną.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Card: Ledainė (4 cols) -->
+          <div class="lg:col-span-4 arch-panel p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between border-b border-white/15 pb-2 mb-3 font-mono-tech text-xs text-zinc-400">
+                <span>03 / POŽEMINIS SANDĖLYS</span>
+                <span>KELI METAI</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2.5">Ledainė</h3>
+              <ul class="space-y-2 text-zinc-300 text-xs sm:text-sm leading-relaxed">
+                <li>• <b>Konstrukcija:</b> Nedidelis pastatas po žeme su dvigubomis sienomis su oro tarpu, šiaudine pastoge ir nendrėmis uždengtu stogu.</li>
+                <li>• <b>Šilumos izoliacija:</b> Apklotas šilumą izoliuojančiomis medžiagomis — <b>šiaudais, durpėmis, nendrėmis ir velėnomis</b>.</li>
+                <li>• <b>Ledo atsargos:</b> Žiemą iš užšalusio vandens telkinio prigabenti ledo luitai išsilaikydavo net <b>keletą metų</b>!</li>
+              </ul>
+            </div>
+            <div class="mt-3 pt-2.5 border-t border-white/15 font-mono-tech text-[11px] text-zinc-400">
+              Apačioje buvo latakas tirpstančio ledo vandeniui nutekėti.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SLIDE 7: UŽDUOČIŲ ATSAKYMAI IR SKAIČIAVIMAI (51 PSL. FLIP CARDS)
+    ==================================================================== -->
+    <section class="slide bg-kitchen-architectural" data-slide="6">
+      <div class="max-w-7xl w-full mx-auto flex flex-col gap-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-white/20 pb-3">
+          <div>
+            <span class="font-mono-tech text-xs text-[#ff4f00] uppercase tracking-widest">07 // VADOVĖLIO 51 PSL. • UŽDUOTYS 1–12</span>
+            <h2 class="font-serif-editorial text-4xl sm:text-5xl text-white mt-1">Užduočių atsakymai ir sprendimai</h2>
+          </div>
+          <p class="text-zinc-300 text-xs font-mono-tech">
+            [SPAUSK ANT KORTELĖS ATSAKYMUI APVERSTI]
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 h-[435px]">
+          
+          <!-- Q1 Flip Card -->
+          <div class="flip-card h-full" onclick="this.classList.toggle('flipped'); playClickSound();">
+            <div class="flip-card-inner">
+              <div class="flip-card-front arch-panel">
+                <div class="flex justify-between items-center font-mono-tech text-xs text-zinc-400">
+                  <span>UŽDUOTIS 01 // 51 PSL.</span>
+                  <span>[APVERSTI]</span>
+                </div>
+                <h3 class="text-lg font-bold text-white my-auto">
+                  Ar atidarius veikiantį šaldytuvą galima atvėsinti butą? Pagrįsk kodėl.
+                </h3>
+                <span class="font-mono-tech text-xs text-[#ff4f00]">RODYTI ATSAKYMĄ →</span>
+              </div>
+              <div class="flip-card-back">
+                <span class="font-mono-tech text-xs font-bold text-[#ff4f00]">ATSAKYMAS (01):</span>
+                <p class="text-sm text-zinc-900 leading-relaxed my-auto">
+                  <b>Ne, butas tik sušils.</b> Šaldytuvo kondensatorius galinėje sienelėje į kambarį išskiria visą iš vidaus paimtą šilumą <b>plius kompresoriaus variklio šilumą</b>.
+                </p>
+                <span class="font-mono-tech text-xs text-zinc-600">ENERGIJOS TVERMĖS DĖSNIS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q3 Flip Card -->
+          <div class="flip-card h-full" onclick="this.classList.toggle('flipped'); playClickSound();">
+            <div class="flip-card-inner">
+              <div class="flip-card-front arch-panel">
+                <div class="flex justify-between items-center font-mono-tech text-xs text-zinc-400">
+                  <span>UŽDUOTIS 03 // 51 PSL.</span>
+                  <span>[APVERSTI]</span>
+                </div>
+                <h3 class="text-lg font-bold text-white my-auto">
+                  Paaiškink, kodėl garintuvas šaldytuve įrengiamas viršuje, o ne apačioje.
+                </h3>
+                <span class="font-mono-tech text-xs text-[#ff4f00]">RODYTI ATSAKYMĄ →</span>
+              </div>
+              <div class="flip-card-back">
+                <span class="font-mono-tech text-xs font-bold text-[#ff4f00]">ATSAKYMAS (03):</span>
+                <p class="text-sm text-zinc-900 leading-relaxed my-auto">
+                  Nes <b>šaltas oras yra tankesnis ir sunkesnis</b> už šiltą. Viršuje atvėsęs oras leidžiasi žemyn, o šiltesnis kyla į viršų — taip konvekcijos būdu atvėsinama visa kamera.
+                </p>
+                <span class="font-mono-tech text-xs text-zinc-600">KONVEKCIJA</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q5 Flip Card -->
+          <div class="flip-card h-full" onclick="this.classList.toggle('flipped'); playClickSound();">
+            <div class="flip-card-inner">
+              <div class="flip-card-front arch-panel">
+                <div class="flex justify-between items-center font-mono-tech text-xs text-zinc-400">
+                  <span>UŽDUOTIS 05 // 51 PSL.</span>
+                  <span>[APVERSTI]</span>
+                </div>
+                <h3 class="text-lg font-bold text-white my-auto">
+                  Kaip manai, kokia spalva dažomi šaldytuvų garintuvai ir kondensatoriai? Kodėl?
+                </h3>
+                <span class="font-mono-tech text-xs text-[#ff4f00]">RODYTI ATSAKYMĄ →</span>
+              </div>
+              <div class="flip-card-back">
+                <span class="font-mono-tech text-xs font-bold text-[#ff4f00]">ATSAKYMAS (05):</span>
+                <p class="text-sm text-zinc-900 leading-relaxed my-auto">
+                  <b>Kondensatoriai dažomi juodai</b>, nes juodi paviršiai geriausiai spinduliuoja šilumą į aplinką. <b>Garintuvai</b> daromi šviesūs/metaliniai, kad efektyviai perimtų šilumą laidumo būdu.
+                </p>
+                <span class="font-mono-tech text-xs text-zinc-600">ŠILUMINIS SPINDULIAVIMAS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q10 Flip Card -->
+          <div class="flip-card h-full" onclick="this.classList.toggle('flipped'); playClickSound();">
+            <div class="flip-card-inner">
+              <div class="flip-card-front arch-panel">
+                <div class="flex justify-between items-center font-mono-tech text-xs text-zinc-400">
+                  <span>UŽDUOTIS 10 // 51 PSL.</span>
+                  <span>[APVERSTI]</span>
+                </div>
+                <h3 class="text-lg font-bold text-white my-auto">
+                  Ar veiktų šaldytuvas, oro kondicionierius ir šilumos siurblys, jei sugestų kompresorius?
+                </h3>
+                <span class="font-mono-tech text-xs text-[#ff4f00]">RODYTI ATSAKYMĄ →</span>
+              </div>
+              <div class="flip-card-back">
+                <span class="font-mono-tech text-xs font-bold text-[#ff4f00]">ATSAKYMAS (10):</span>
+                <p class="text-sm text-zinc-900 leading-relaxed my-auto">
+                  <b>Neveiktų nė vienas.</b> Be kompresoriaus nebūtų sukuriamas slėgių skirtumas ir šaldymo skystis nustotų cirkuliuoti uždaru ratu.
+                </p>
+                <span class="font-mono-tech text-xs text-zinc-600">KOMPRESORIUS YRA BŪTINAS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q11 Calculation Card -->
+          <div class="flip-card h-full" onclick="this.classList.toggle('flipped'); playClickSound();">
+            <div class="flip-card-inner">
+              <div class="flip-card-front arch-panel">
+                <div class="flex justify-between items-center font-mono-tech text-xs text-zinc-400">
+                  <span>UŽDAVINYS 11 // 51 PSL.</span>
+                  <span>[SKAIČIAVIMAS]</span>
+                </div>
+                <h3 class="text-base font-bold text-white my-auto">
+                  Šilumos siurblys iš aplinkos paėmė 10,8 · 10⁴ kJ energijos. Kiek energijos buvo perduota patalpoms, jei nuostolių nebuvo?
+                </h3>
+                <span class="font-mono-tech text-xs text-[#38bdf8]">RODYTI SPRENDIMĄ →</span>
+              </div>
+              <div class="flip-card-back">
+                <span class="font-mono-tech text-xs font-bold text-[#ff4f00]">SPRENDIMAS (11):</span>
+                <p class="text-xs sm:text-sm text-zinc-900 leading-relaxed my-auto">
+                  1) Iš aplinkos paimta šiluma: Q_apl = 10,8 · 10⁴ kJ = <b>108 000 kJ = 108 MJ</b>.<br>
+                  2) Kadangi nuostolių nebuvo, visa ši energija (<b>108 MJ</b>, o su kompresoriaus darbu iki 144 MJ) perduota patalpoms.
+                </p>
+                <span class="font-mono-tech text-xs font-bold text-zinc-800">ATS.: 10,8 · 10⁴ kJ (108 MJ)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q12 Calculation Card -->
+          <div class="flip-card h-full" onclick="this.classList.toggle('flipped'); playClickSound();">
+            <div class="flip-card-inner">
+              <div class="flip-card-front arch-panel">
+                <div class="flex justify-between items-center font-mono-tech text-xs text-zinc-400">
+                  <span>UŽDAVINYS 12 // 51 PSL.</span>
+                  <span>[SKAIČIAVIMAS]</span>
+                </div>
+                <h3 class="text-base font-bold text-white my-auto">
+                  Per parą (24 h) namui perduota 1,5 GJ šilumos. Naudingumo koeficientas = 4. Kiek elektros suvartojo ir kokia galia?
+                </h3>
+                <span class="font-mono-tech text-xs text-[#38bdf8]">RODYTI SPRENDIMĄ →</span>
+              </div>
+              <div class="flip-card-back">
+                <span class="font-mono-tech text-xs font-bold text-[#ff4f00]">SPRENDIMAS (12):</span>
+                <p class="text-xs sm:text-sm text-zinc-900 leading-relaxed my-auto">
+                  1) Elektros energija: E = 1,5 GJ / 4 = <b>0,375 GJ = 375 MJ</b>.<br>
+                  2) Laikas: t = 24 h = 86 400 s.<br>
+                  3) Siurblio galia: P = E / t = 375 000 000 J / 86 400 s ≈ <b>4340 W = 4,34 kW</b>.
+                </p>
+                <span class="font-mono-tech text-xs font-bold text-zinc-800">ATS.: E = 375 MJ; P ≈ 4,34 kW</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SLIDE 8: ARIANHOOT! QUIZ (UNLIMITED TIME ∞ + LIFELINES)
+    ==================================================================== -->
+    <section class="slide bg-kitchen-architectural" data-slide="7">
+      <div class="max-w-6xl w-full mx-auto flex flex-col justify-between h-full py-1 relative">
+        
+        <!-- Top Arianhoot Header Bar -->
+        <div class="arch-panel px-5 py-3 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <div class="px-3 py-1 bg-[#ff4f00] text-white font-mono-tech font-bold text-sm">
+              ARIANHOOT!
+            </div>
+            <span class="hidden sm:inline-block font-mono-tech text-xs text-zinc-400">
+              INTERAKTYVI FIZIKOS VIKTORINA // 9C
+            </span>
+          </div>
+
+          <!-- Lifelines & Status -->
+          <div class="flex flex-wrap items-center gap-2">
+            <button id="lifeline-5050" onclick="useLifeline5050()" class="mech-btn px-3 py-1.5 rounded font-mono-tech font-bold text-xs" title="Pašalinti 2 neteisingus atsakymus">
+              50 / 50
+            </button>
+
+            <button id="lifeline-2x" onclick="useLifeline2x()" class="mech-btn px-3 py-1.5 rounded font-mono-tech font-bold text-xs text-amber-400" title="Padvigubinti šio klausimo taškus">
+              2X TAŠKAI
+            </button>
+
+            <div class="px-3 py-1.5 bg-zinc-900 border border-white/15 font-mono-tech text-xs text-emerald-400 flex items-center gap-1.5">
+              <span>∞</span> <span>NERIBOTAS LAIKAS</span>
+            </div>
+
+            <div class="px-3 py-1.5 bg-zinc-900 border border-white/15 font-mono-tech text-xs text-amber-400">
+              <span id="k-streak">SERIJA: 0</span>
+            </div>
+
+            <div id="k-progress-pill" class="px-3 py-1.5 bg-zinc-900 border border-white/15 font-mono-tech text-xs text-white">
+              1 / 8
+            </div>
+
+            <div id="k-score-pill" class="px-3.5 py-1.5 bg-white text-zinc-950 font-mono-tech font-bold text-xs">
+              0 TŠK.
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Question Area -->
+        <div id="k-game-stage" class="flex-grow flex flex-col justify-center gap-4 my-2">
+          <!-- Question Banner -->
+          <div class="arch-card-light p-6 sm:p-7 text-center relative">
+            <span id="k-active-2x-badge" class="hidden absolute top-3 right-3 px-2.5 py-0.5 bg-[#ff4f00] text-white font-mono-tech font-bold text-xs">
+              2X TAŠKAI AKTYVUOTI
+            </span>
+            <h2 id="k-question-title" class="font-serif-editorial text-2xl sm:text-4xl text-zinc-950 leading-snug">
+              1. Kas nutiks kambario temperatūrai, jei paliksime atidarytas veikiančio šaldytuvo duris?
+            </h2>
+          </div>
+
+          <!-- 4 Arianhoot Geometric Buttons -->
+          <div id="k-options-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <button class="kahoot-ans-btn k-red" onclick="submitKahootAnswer(0)">
+              <span class="k-shape">▲</span>
+              <span class="k-opt-text">Kambarys greitai atvės</span>
+            </button>
+            <button class="kahoot-ans-btn k-blue" onclick="submitKahootAnswer(1)">
+              <span class="k-shape">◆</span>
+              <span class="k-opt-text">Kambarys sušils, nes kondensatorius ir variklis išskiria daugiau šilumos</span>
+            </button>
+            <button class="kahoot-ans-btn k-yellow" onclick="submitKahootAnswer(2)">
+              <span class="k-shape">●</span>
+              <span class="k-opt-text">Temperatūra kambaryje visiškai nepakis</span>
+            </button>
+            <button class="kahoot-ans-btn k-green" onclick="submitKahootAnswer(3)">
+              <span class="k-shape">■</span>
+              <span class="k-opt-text">Šaldytuvas užšaldys visą butą</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Bottom Feedback & Next Button Bar -->
+        <div id="k-footer-bar" class="arch-panel px-6 py-3 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p id="k-feedback-msg" class="text-xs sm:text-sm font-mono-tech text-zinc-300">
+            PASIRINK TEISINGĄ ATSAKYMĄ (LAIKAS NERIBOJAMAS ∞)
+          </p>
+          <button id="k-next-btn" onclick="nextKahootStep()" class="hidden mech-btn-orange px-5 py-2 rounded font-mono-tech font-bold text-xs uppercase shrink-0">
+            KITAS KLAUSIMAS →
+          </button>
+        </div>
+
+        <!-- Arianhoot Final Podium Screen -->
+        <div id="k-podium-screen" class="hidden flex-grow flex-col items-center justify-center text-center arch-panel p-8 my-2">
+          <div class="px-3 py-1 bg-[#ff4f00] text-white font-mono-tech text-xs uppercase mb-3">
+            ARIANHOOT! REZULTATŲ SUVESTINĖ
+          </div>
+          <h2 class="font-serif-editorial text-5xl sm:text-6xl text-white mb-2">
+            Viktorina baigta!
+          </h2>
+          <p class="font-mono-tech text-xs text-zinc-400 mb-5">
+            AUTORIAI: VITALIJ ŽURAVLIOV (9C) & LAURYNAS BASYS (9C)
+          </p>
+          <div id="k-final-points" class="font-mono-tech text-4xl sm:text-5xl font-bold text-[#ff4f00] mb-2">
+            0 TAŠKŲ
+          </div>
+          <p id="k-final-accuracy" class="font-mono-tech text-sm text-zinc-300 mb-6">
+            Teisingai atsakyta: 0 iš 8
+          </p>
+          <div class="flex flex-wrap gap-3 justify-center">
+            <button onclick="resetKahootGame()" class="mech-btn px-6 py-3 rounded font-mono-tech font-bold text-xs uppercase">
+              ŽAISTI DAR KARTĄ
+            </button>
+            <button onclick="goToSlide(0); burstSupremeCash(45); playCashSound();" class="mech-btn-orange px-6 py-3 rounded font-mono-tech font-bold text-xs uppercase">
+              GRĮŽTI PAS AUTORIUS (SUPREME $100)
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </div>
-  <svg viewBox="0 0 400 320" role="img" aria-label="Senas telefonas ir robotas">
-   <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e4572e"/><stop offset="1" stop-color="#17a398"/></linearGradient></defs>
-   <rect width="400" height="320" fill="url(#g)"/>
-   <circle cx="320" cy="60" r="34" fill="#fff" opacity=".25"/>
-   <rect x="40" y="150" width="120" height="110" rx="14" fill="#2b2f36"/>
-   <circle cx="100" cy="205" r="30" fill="#8a8f98"/><circle cx="100" cy="205" r="10" fill="#2b2f36"/>
-   <rect x="60" y="120" width="80" height="22" rx="10" fill="#2b2f36"/>
-   <rect x="240" y="90" width="110" height="90" rx="18" fill="#fff"/>
-   <circle cx="272" cy="130" r="12" fill="#17a398"/><circle cx="318" cy="130" r="12" fill="#17a398"/>
-   <rect x="268" y="156" width="54" height="8" rx="4" fill="#e4572e"/>
-   <rect x="293" y="68" width="4" height="22" fill="#fff"/><circle cx="295" cy="64" r="7" fill="#fff"/>
-   <rect x="250" y="190" width="90" height="70" rx="14" fill="#fff" opacity=".9"/>
-   <path d="M175 205h50m-14-14 14 14-14 14" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
- </div>
-</section>
 
-<section class="slide">
- <span class="tag">Įvadas</span>
- <h2>Kodėl apie tai kalbame?</h2>
- <p class="sub">Darbo rinka keičiasi greičiau nei bet kada. Profesijos, kurios seniau užtikrindavo darbą visam gyvenimui, šiandien gali būti pakeistos programa ar mašina, o kartu atsiranda visiškai naujų darbų. Šioje prezentacijoje aiškinamės, kodėl taip vyksta ir kaip tam pasiruošti.</p><p class="hint">Spustelėkite kortelę su „+“, kad pamatytumėte daugiau.</p>
- <div class="grid" data-k="intro"></div>
-</section>
+  <!-- BOTTOM ARCHITECTURAL NAVIGATION DOCK -->
+  <nav class="fixed bottom-3 left-1/2 -translate-x-1/2 z-50 bg-[#0c0d0e]/95 backdrop-blur-md border border-white/20 px-4 py-2 flex items-center gap-4">
+    <button onclick="prevSlide()" class="mech-btn w-8 h-8 rounded flex items-center justify-center" title="Ankstesnė skaidrė (←)">
+      <i class="fa-solid fa-chevron-left text-xs"></i>
+    </button>
 
-<section class="slide">
- <span class="tag">Priežastys</span>
- <h2>Kodėl profesijos nyksta?</h2>
- <p class="sub">Dažniausiai nėra vienos priežasties. Profesiją „nugali“ kelios jėgos kartu.</p>
- <div class="grid" data-k="why"></div>
-</section>
+    <div id="slide-dots" class="flex items-center gap-1.5"></div>
 
-<section class="slide">
- <span class="tag">Technologijų bangos</span>
- <h2>Kaip technologijos keitė darbą</h2>
- <p class="sub">Kiekviena technologinė revoliucija panaikino dalį profesijų, bet sukūrė dar daugiau naujų. Skirtumas tas, kad dabar pokyčiai vyksta kur kas greičiau, todėl persikvalifikuoti tenka dar kartą per gyvenimą.</p>
- <div class="steps" style="margin-top:14px">
-  <div class="step"><b>Garas ir mašinos (XVIII a.)</b><span>Rankų darbą keičia fabrikai, nyksta daugelis amatų, o miestuose atsiranda fabrikų darbininkai.</span></div>
-  <div class="step"><b>Elektra ir konvejeris (XIX a. pabaiga)</b><span>Prasideda masinė gamyba. Žibintų uždegėjų ir ledo pjovėjų darbą perima elektra.</span></div>
-  <div class="step"><b>Kompiuteriai ir internetas (XX a. pabaiga)</b><span>Biuro darbas pereina į skaitmeninį pasaulį. Nyksta mašininkės, atsiranda programuotojai.</span></div>
-  <div class="step"><b>Dirbtinis intelektas (dabar)</b><span>Automatizuojamas ir protinis darbas. Kartu atsiranda DI specialistų, duomenų analitikų ir saugumo ekspertų.</span></div>
- </div>
-</section>
+    <div id="slide-counter-label" class="font-mono-tech font-bold text-xs text-zinc-300 min-w-[48px] text-center">
+      01 / 08
+    </div>
 
-<section class="slide">
- <span class="tag">Istorija</span>
- <h2>Jau išnykusios profesijos</h2>
- <p class="sub">Kadaise jos buvo įprastos ir reikalingos, o šiandien jų beveik niekas nebepamena.</p>
- <div class="grid down" data-k="gone"></div>
-</section>
+    <button onclick="nextSlide()" class="mech-btn w-8 h-8 rounded flex items-center justify-center" title="Kita skaidrė (→)">
+      <i class="fa-solid fa-chevron-right text-xs"></i>
+    </button>
 
-<section class="slide">
- <span class="tag">Dabar</span>
- <h2>Profesijos, kurios nyksta šiandien</h2>
- <p class="sub">Darbai, kuriuos lengviausia automatizuoti arba perkelti į internetą.</p>
- <div class="grid down" data-k="now"></div>
-</section>
+    <button onclick="goToSlide(7)" class="hidden sm:flex mech-btn-orange px-3 py-1.5 rounded font-mono-tech font-bold text-xs">
+      ARIANHOOT!
+    </button>
+  </nav>
 
-<section class="slide">
- <span class="tag">Pavyzdys</span>
- <h2>Kaip išnyksta profesija: kasininkas</h2>
- <p class="sub">Profesija dažniausiai nedingsta per naktį. Ji nyksta etapais.</p>
- <div class="steps">
-  <div class="step"><b>Kasos aparatai</b><span>Skaičiavimą perima technika, bet žmogus dar suvedinėja kainas.</span></div>
-  <div class="step"><b>Brūkšniniai kodai</b><span>Prekės nuskaitomos greičiau, reikia mažiau darbuotojų.</span></div>
-  <div class="step"><b>Savitarnos kasos</b><span>Pirkėjas dirba pats, kasininkų lieka mažai.</span></div>
-  <div class="step"><b>Parduotuvės be kasų</b><span>Kameros ir jutikliai atpažįsta prekes, kasos nebereikia.</span></div>
- </div>
-</section>
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    /* =====================================================================
+       0. WEB AUDIO API SOUND SYNTHESIZER
+    ===================================================================== */
+    let soundEnabled = true;
+    let audioCtx = null;
 
-<section class="slide">
- <span class="tag">Priežastys</span>
- <h2>Kodėl atsiranda naujos profesijos?</h2>
- <p class="sub">Kiekviena technologija sukuria naujų poreikių, o naujiems poreikiams reikia žmonių.</p>
- <div class="grid" data-k="whynew"></div>
-</section>
+    function getAudioCtx() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (AudioContext) audioCtx = new AudioContext();
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
 
-<section class="slide">
- <span class="tag">Ateitis</span>
- <h2>Profesijos, kurių daugėja</h2>
- <p class="sub">Joms reikia technologinių, analitinių ir kūrybinių gebėjimų.</p>
- <div class="grid up" data-k="new"></div>
-</section>
+    function toggleSoundFX() {
+      soundEnabled = !soundEnabled;
+      const icon = document.getElementById('sound-icon');
+      icon.className = soundEnabled ? 'fa-solid fa-volume-high text-xs text-zinc-200' : 'fa-solid fa-volume-xmark text-xs text-red-500';
+      if (soundEnabled) playClickSound();
+    }
 
-<section class="slide">
- <span class="tag">Svarbu</span>
- <h2>Dalis profesijų nedingsta, o keičiasi</h2>
- <p class="sub">Dažnai technologija pakeičia ne visą profesiją, o jos užduotis. Žmogus lieka, bet dirba kitaip ir naudojasi naujais įrankiais.</p>
- <div class="grid" data-k="evolve"></div>
-</section>
+    function playClickSound() {
+      if (!soundEnabled) return;
+      const ctx = getAudioCtx();
+      if (!ctx) return;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(420, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(680, ctx.currentTime + 0.045);
+      gain.gain.setValueAtTime(0.06, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.045);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.045);
+    }
 
-<section class="slide">
- <span class="tag">Palyginimas</span>
- <h2>Nyksta ir auga: kuo skiriasi?</h2>
- <div class="cols" style="margin-top:12px">
-  <div class="box"><h3>Mažėjanti paklausa</h3>
-   <ul><li>Pasikartojantys veiksmai</li><li>Darbas pagal griežtą instrukciją</li><li>Paprastas informacijos perdavimas</li><li>Darbas, kurį gali atlikti programa</li></ul></div>
-  <div class="box"><h3>Augantis poreikis</h3>
-   <ul><li>Kritinis mąstymas ir kūrybiškumas</li><li>Skaitmeniniai įgūdžiai</li><li>Bendravimas ir komandinis darbas</li><li>Sudėtingų problemų sprendimas</li></ul></div>
- </div>
- <div class="box" style="margin-top:16px">
-  <h3>Svarbiausi įgūdžiai (iliustracinis vertinimas)</h3>
-  <small style="color:var(--mut)">Skaitmeninis raštingumas</small><div class="bar"><i style="width:90%"></i></div>
-  <small style="color:var(--mut)">Mokymasis visą gyvenimą</small><div class="bar"><i style="width:85%"></i></div>
-  <small style="color:var(--mut)">Kūrybiškumas</small><div class="bar"><i style="width:75%"></i></div>
- </div>
-</section>
+    function playCashSound() {
+      if (!soundEnabled) return;
+      const ctx = getAudioCtx();
+      if (!ctx) return;
+      [0, 0.06, 0.12].forEach((delay, idx) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(987.77 + idx * 320, ctx.currentTime + delay);
+        osc.frequency.exponentialRampToValueAtTime(1860 + idx * 320, ctx.currentTime + delay + 0.08);
+        gain.gain.setValueAtTime(0.07, ctx.currentTime + delay);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + delay + 0.09);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(ctx.currentTime + delay);
+        osc.stop(ctx.currentTime + delay + 0.09);
+      });
+    }
 
-<section class="slide">
- <span class="tag">Patarimai</span>
- <h2>Kaip pasiruošti kintančiai rinkai?</h2>
- <div class="grid" data-k="tips" style="margin-top:12px"></div>
-</section>
+    function playWinSound() {
+      if (!soundEnabled) return;
+      const ctx = getAudioCtx();
+      if (!ctx) return;
+      const notes = [523.25, 659.25, 783.99, 1046.50];
+      notes.forEach((freq, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.07);
+        gain.gain.setValueAtTime(0.1, ctx.currentTime + i * 0.07);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.07 + 0.2);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(ctx.currentTime + i * 0.07);
+        osc.stop(ctx.currentTime + i * 0.07 + 0.2);
+      });
+    }
 
-<section class="slide">
- <span class="tag">Išvados</span>
- <h2>Ką svarbu atsiminti</h2>
- <div class="grid" data-k="end" style="margin-top:12px"></div>
-</section>
+    function playWrongSound() {
+      if (!soundEnabled) return;
+      const ctx = getAudioCtx();
+      if (!ctx) return;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(190, ctx.currentTime);
+      osc.frequency.linearRampToValueAtTime(120, ctx.currentTime + 0.25);
+      gain.gain.setValueAtTime(0.08, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.26);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.26);
+    }
 
-<section class="slide" style="text-align:center">
- <span class="tag">Autoriai</span>
- <h2>Ačiū už dėmesį!</h2>
- <div class="authors">
-  <div class="card"><div class="av" style="background:linear-gradient(135deg,#e4572e,#f2a541)">VŽ</div><b>Vitalij Žuravliov</b></div>
-  <div class="card"><div class="av" style="background:linear-gradient(135deg,#17a398,#2e6fd8)">MP</div><b>Modestas Papirtis</b></div>
-  <div class="card"><div class="av" style="background:linear-gradient(135deg,#7b4bd6,#e4572e)">BS</div><b>Bernard Smirnov</b></div>
- </div>
-</section>
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
 
-</div>
-<nav>
- <button id="prev">← Atgal</button>
- <div class="bw"><i id="pr"></i></div>
- <div class="cnt" id="cnt"></div>
- <button id="next">Toliau →</button>
-</nav>
-<script>
-(function(){
- var D={
- intro:[["🤖","Automatizacija","Rutininį darbą perima mašinos"],["🧠","Dirbtinis intelektas","Analizė ir turinio kūrimas"],["🌐","Skaitmenizacija","Paslaugos persikelia į internetą"],["🌱","Žalioji kaita","Atsinaujinanti energetika"]],
- why:[["🤖","Automatizacija","Mašina dirba greičiau, pigiau ir be pertraukų. Kur darbas pasikartoja, jį pirmiausia perima įrenginiai."],["💻","Skaitmenizacija","Popierių ir tarpininkus keičia programos, todėl nebereikia žmonių, kurie perduoda informaciją iš vienos vietos į kitą."],["💶","Kaina","Darbdaviui dažnai pigiau vieną kartą investuoti į technologiją nei nuolat mokėti atlyginimus."],["🛍️","Įpročių kaita","Žmonės perka internetu, moka telefonu ir naudojasi savitarna, todėl tradicinių paslaugų poreikis mažėja."],["🌍","Globalizacija","Gamyba ir paslaugos persikelia ten, kur jos pigesnės, todėl vietos darbo vietų sumažėja."],["🌿","Aplinkosauga","Taršios technologijos keičiamos švariomis, o su jomis nyksta ir susijusios profesijos."]],
- gone:[["🕯️","Žibintų uždegėjas","Gatves uždegdavo rankomis, kol atsirado elektra."],["📡","Telegrafistas","Žinutes siųsdavo kodu, jas pakeitė telefonas."],["🧊","Ledo pjovėjas","Ledą parduodavo namams, kol atsirado šaldytuvai."],["🛗","Liftininkas","Lifto mygtukus spausdavo žmogus, dabar tai daro keleivis."],["🥛","Pieno išvežiotojas","Pieną vežiodavo į namus, dabar jis perkamas parduotuvėje."],["✍️","Rankinis rašeiva","Tekstus perrašydavo ranka, kol atsirado spausdinimas."]],
- now:[["🛒","Kasininkas","Savitarnos kasos"],["☎️","Telefonistas","Automatiniai atsakikliai"],["⌨️","Mašininkė","Tekstų rengyklės"],["🎞️","Foto ryškintojas","Skaitmeninė fotografija"],["🏦","Banko operatorius","Internetinė bankininkystė"],["📠","Spaustuvės rinkėjas","Kompiuterinis maketavimas"]],
- whynew:[["📱","Nauji prietaisai","Programėlėms ir įrenginiams reikia kūrėjų."],["🔐","Naujos rizikos","Daugiau duomenų reiškia daugiau grėsmių."],["🌞","Energetikos kaita","Reikia žalios energijos specialistų."],["❤️","Gyvenimo trukmė","Vyresnei visuomenei reikia sveikatos priežiūros."]],
- new:[["📊","Duomenų analitikas","Sprendimai iš duomenų"],["🧠","DI specialistas","Modelių kūrimas ir priežiūra"],["🛡️","Kibernetinio saugumo ekspertas","Apsauga nuo atakų"],["🎨","UX dizaineris","Patogios programos"],["🚁","Dronų operatorius","Žemėlapiai, stebėsena"],["☀️","Saulės energetikos technikas","Žalioji energetika"],["🎮","Žaidimų kūrėjas","Interaktyvi pramoga"],["🎥","Turinio kūrėjas","Vaizdo įrašai ir socialiniai tinklai"]],
- tips:[["📚","Mokykitės nuolat","Kursai, savarankiškas mokymasis."],["💡","Lavinkite kūrybiškumą","Tai, ko mašina dar nemoka."],["🗣️","Tobulinkite bendravimą","Komandinis darbas visada reikalingas."],["🧰","Išmokite naudotis DI","Jis taps įprastu darbo įrankiu."]],
- evolve:[["👩‍⚕️","Gydytojas","DI padeda atpažinti ligas nuotraukose, bet sprendimus ir pokalbį su pacientu atlieka žmogus."],["👩‍🏫","Mokytojas","Programos paaiškina temą, bet motyvuoti, palaikyti ir ugdyti charakterį gali tik žmogus."],["🧮","Buhalteris","Skaičiavimus atlieka programos, o specialistas daugiau konsultuoja ir planuoja."],["🚚","Vairuotojas","Atsiranda pagalbinės sistemos ir autonominės transporto priemonės, tačiau darbas keičiasi palaipsniui."],["📰","Žurnalistas","Naujienų rašymą gali palengvinti DI, bet tyrimas, šaltinių tikrinimas ir etika lieka žmogui."],["🏗️","Statybininkas","Dronai ir robotai padeda matuoti ir statyti, bet vietoje sprendžia meistrai."]],
- end:[["🔄","Profesijos keičiasi","Pokyčiai vyksta nuolat."],["📚","Mokymasis visą gyvenimą","Persikvalifikavimas tampa norma."],["🤝","Žmogiškumas svarbus","Empatija ir kūryba sunkiai automatizuojamos."]]
- };
- var M={
- gone:["Kiekvieną vakarą jis lazda uždegdavo dujinius ar žibalinius gatvių žibintus, o ryte juos užgesindavo. Kai miestus nušvietė elektra su automatiniais jungikliais, šio darbo nebeliko.","Žinutės būdavo siunčiamos Morzės kodu, o telegrafistas jas užkoduodavo ir iššifruodavo. Telefonas, vėliau faksas ir el. paštas šią paslaugą padarė nebereikalingą.","Žiemą ledas būdavo pjaunamas iš ežerų ir sandėliuojamas, kad vasarą būtų galima laikyti maistą šaltai. Elektriniai šaldytuvai šią prekybą pakeitė.","Žmogus valdydavo lifto svirtį ir sustodavo reikiamame aukšte. Automatiniai mygtukai ir jutikliai leido keleiviams lifto naudotis patiems.","Pieną į namus atveždavo kasdien, o tuščius butelius išveždavo atgal. Šaldytuvai, automobiliai ir prekybos centrai pakeitė šį įprotį.","Dokumentus, laiškus ir knygas perrašydavo ranka. Spaudos staklės, o vėliau spausdintuvai šį darbą padarė kelis kartus greitesnį."],
- now:["Savitarnos kasos ir mobiliosios programėlės mažina kasininkų poreikį. Dalis jų persikvalifikuoja į klientų aptarnavimo ar pardavimų konsultantus.","Automatiniai atsakikliai ir pokalbių robotai atsako į dažniausius klausimus. Žmonių lieka sudėtingiems atvejams spręsti.","Tekstų rengyklės leidžia visiems rašyti ir taisyti dokumentus patiems. Profesija virto sekretoriaus ir asmeninio asistento darbu.","Skaitmeninės kameros ir telefonai panaikino plėvelės ryškinimo poreikį. Likusios laboratorijos dirba kaip nišinė paslauga.","Mokėjimai ir pavedimai atliekami programėlėje per kelias sekundes. Bankų skyrių mažėja, o darbuotojai perkeliami į konsultacijas.","Raides kadaise dėdavo ranka, vėliau jas pakeitė kompiuterinis maketavimas. Dabar tai atlieka dizaineriai programose."],
- new:["Įmonės kaupia didžiulius duomenų kiekius ir ieško, kaip juos paversti sprendimais. Analitikai tvarko, vizualizuoja ir aiškina duomenis.","Kuria, apmoko ir prižiūri dirbtinio intelekto sistemas. Reikia matematikos, programavimo ir supratimo apie etiką.","Saugo sistemas nuo įsilaužimų, nutekėjimų ir sukčiavimo. Kuo daugiau gyvenimo internete, tuo daugiau šių specialistų reikia.","Tiria, kaip žmonės naudojasi programomis, ir kuria patogias, aiškias sąsajas. Jungia psichologiją, dizainą ir technologijas.","Dronai fotografuoja laukus, tikrina elektros linijas, filmuoja ir pristato siuntas. Reikia skraidymo ir duomenų apdorojimo žinių.","Montuoja ir prižiūri saulės elektrines. Žalioji kaita ir energijos kainos didina šių specialistų paklausą.","Kuria žaidimų pasaulius, istorijas ir mechanikas. Žaidimų industrija jungia programuotojus, dailininkus ir rašytojus.","Kuria vaizdo įrašus, podkastus ir įrašus socialiniuose tinkluose. Tai vienas iš naujų būdų užsidirbti iš kūrybos."]
- };
- var P=[["#e4572e","#f2a541"],["#17a398","#2e6fd8"],["#7b4bd6","#e4572e"],["#2a9d4a","#17a398"],["#2e6fd8","#7b4bd6"],["#f2a541","#e4572e"]];
- function scene(e,n,g,k){
-  var T={gone:'o',now:'c',new:'t',whynew:'t',why:'c',intro:'t',tips:'n',end:'n',evolve:'c'}[k],
-  C={o:['#f3d9a4','#8a5a30','#3b2412'],c:['#9cc0e3','#3d5a80','#14202e'],t:['#2de2c5','#2a4fd6','#0a1030'],n:['#ffe9a8','#3aa76d','#0f3d2c']}[T],
-  id='q'+g+'_'+n,s='',i,j,x,y,h,w,sx=60+(n*53)%180;
-  s+='<svg viewBox="0 0 300 170" aria-hidden="true"><defs><linearGradient id="a'+id+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+(T=='t'?C[2]:C[1])+'"/><stop offset="1" stop-color="'+(T=='t'?C[1]:C[0])+'"/></linearGradient>'
-  +'<radialGradient id="b'+id+'"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>'
-  +'<radialGradient id="c'+id+'" cx=".5" cy=".5" r=".75"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".6"/></radialGradient>'
-  +'<filter id="d'+id+'"><feTurbulence baseFrequency=".85" numOctaves="2" seed="'+n+'"/><feColorMatrix type="saturate" values="0"/></filter>'
-  +'<filter id="e'+id+'" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity=".55"/></filter></defs>'
-  +'<rect width="300" height="170" fill="url(#a'+id+')"/><circle cx="'+sx+'" cy="46" r="62" fill="url(#b'+id+')" opacity=".75"/><circle cx="'+sx+'" cy="46" r="15" fill="#fff" opacity=".85"/>';
-  for(i=0;i<7;i++)s+='<circle cx="'+((n*37+i*61)%300)+'" cy="'+((i*29+n*17)%90+8)+'" r="'+(5+i*2.5)+'" fill="#fff" opacity=".1"/>';
-  if(T=='n'){
-   s+='<path d="M0 125Q50 70 110 108T220 92 300 112V170H0Z" fill="'+C[1]+'" opacity=".55"/><path d="M0 140Q80 96 160 128T300 118V170H0Z" fill="'+C[2]+'" opacity=".6"/>';
-   for(i=0;i<8;i++){x=14+i*38+(n*7)%12;y=122+(i%3)*6;s+='<rect x="'+(x-1.5)+'" y="'+y+'" width="3" height="12" fill="#2b1a0e"/><circle cx="'+x+'" cy="'+(y-4)+'" r="'+(9+(i%3)*2)+'" fill="'+C[2]+'" opacity=".85"/>';}
-  }else{
-   for(i=0;i<10;i++){h=36+((i*37+n*11)%52);x=i*31;y=128-h;s+='<rect x="'+x+'" y="'+y+'" width="28" height="'+h+'" fill="'+C[2]+'" opacity=".6"/>';
-    for(j=0;j<4;j++)if((i+j+n)%2==0)s+='<rect x="'+(x+5)+'" y="'+(y+6+j*10)+'" width="5" height="5" fill="#ffd97a" opacity=".8"/><rect x="'+(x+16)+'" y="'+(y+6+j*10)+'" width="5" height="5" fill="#ffd97a" opacity=".55"/>';}
-   s+='<rect y="128" width="300" height="42" fill="'+C[2]+'" opacity=".6"/>';
-   if(T=='t'){for(i=-5;i<=5;i++)s+='<line x1="150" y1="128" x2="'+(150+i*55)+'" y2="170" stroke="'+C[0]+'" stroke-width=".8" opacity=".35"/>';
-    for(i=0;i<3;i++)s+='<line x1="0" y1="'+(136+i*13)+'" x2="300" y2="'+(136+i*13)+'" stroke="'+C[0]+'" stroke-width=".8" opacity=".3"/>';
-    s+='<path d="M10 20h40v14h30M230 16h30v22h28" stroke="'+C[0]+'" stroke-width="1.4" fill="none" opacity=".6"/><circle cx="80" cy="34" r="3" fill="'+C[0]+'"/><circle cx="288" cy="38" r="3" fill="'+C[0]+'"/>';}
-  }
-  s+='<ellipse cx="150" cy="134" rx="52" ry="8" fill="#000" opacity=".35"/><text x="150" y="124" font-size="76" text-anchor="middle" filter="url(#e'+id+')">'+e+'</text>'
-  +'<rect width="300" height="170" filter="url(#d'+id+')" opacity="'+(T=='o'?.3:.16)+'"/><rect width="300" height="170" fill="url(#c'+id+')"/></svg>';
-  return s;
- }
- var gi=0;
- [].forEach.call(document.querySelectorAll('[data-k]'),function(el){
-  gi++;
-  D[el.dataset.k].forEach(function(r,n){
-   var d=document.createElement('div');d.className='card';
-   d.style.setProperty('--i',n);var mo=M[el.dataset.k]&&M[el.dataset.k][n];if(mo)d.classList.add('hm');d.innerHTML='<div class="imgw">'+scene(r[0],n,gi,el.dataset.k)+'</div><div class="t"><b>'+r[1]+'</b><span>'+r[2]+'</span>'+(mo?'<p class="more">'+mo+'</p>':'')+'</div>';if(mo)d.onclick=function(){d.classList.toggle('open')};
-   el.appendChild(d);
-  });
- });
- [].forEach.call(document.querySelectorAll('.step,.box'),function(e,n){e.style.setProperty('--i',n%6)});
- var s=[].slice.call(document.querySelectorAll('.slide')),i=0;
- document.addEventListener('mousemove',function(e){var b=document.getElementById('bg');b.style.transform='translate('+((e.clientX/innerWidth-.5)*-30)+'px,'+((e.clientY/innerHeight-.5)*-30)+'px)'});
- function go(n){
-  i=Math.max(0,Math.min(s.length-1,n));
-  s.forEach(function(x,k){x.classList.toggle('on',k===i);x.classList.toggle('past',k<i)});
-  document.getElementById('prev').disabled=i===0;
-  document.getElementById('next').disabled=i===s.length-1;
-  document.getElementById('cnt').textContent=(i+1)+" / "+s.length;
-  document.getElementById('pr').style.width=((i+1)/s.length*100)+"%";
-  s[i].scrollTop=0;
- }
- document.getElementById('prev').onclick=function(){go(i-1)};
- document.getElementById('next').onclick=function(){go(i+1)};
- document.addEventListener('keydown',function(e){
-  if(e.key==='ArrowRight'||e.key===' ')go(i+1);
-  if(e.key==='ArrowLeft')go(i-1);
- });
- var x0=null;
- document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
- document.addEventListener('touchend',function(e){
-  if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;
-  if(Math.abs(dx)>70)go(i+(dx<0?1:-1));x0=null;
- });
- go(0);
-})();
-</script>
+    /* =====================================================================
+       1. 3D CARD TILT & MOUSE PARALLAX
+    ===================================================================== */
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function tiltCard(e, cardEl) {
+      const rect = cardEl.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -6;
+      const rotateY = ((x - centerX) / centerX) * 6;
+      cardEl.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    }
+
+    function resetTiltCard(cardEl) {
+      cardEl.style.transform = '';
+    }
+
+    /* =====================================================================
+       2. SLIDE DECK NAVIGATION ENGINE
+    ===================================================================== */
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    let currentSlide = 0;
+
+    function buildSlideDots() {
+      const dotsWrap = document.getElementById('slide-dots');
+      dotsWrap.innerHTML = '';
+      for (let i = 0; i < totalSlides; i++) {
+        const btn = document.createElement('button');
+        btn.onclick = () => goToSlide(i);
+        btn.className = `h-2 transition-all duration-200 ${
+          i === currentSlide ? 'w-6 bg-[#ff4f00]' : 'w-2 bg-zinc-600 hover:bg-zinc-400'
+        }`;
+        dotsWrap.appendChild(btn);
+      }
+    }
+
+    function goToSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+
+      slides[currentSlide].classList.remove('active');
+      currentSlide = index;
+      slides[currentSlide].classList.add('active');
+
+      const numStr = String(currentSlide + 1).padStart(2, '0');
+      const totStr = String(totalSlides).padStart(2, '0');
+      document.getElementById('slide-counter-label').textContent = `${numStr} / ${totStr}`;
+      document.getElementById('top-progress').style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+      document.getElementById('hud-slide-select').value = String(currentSlide);
+      playClickSound();
+      buildSlideDots();
+    }
+
+    function nextSlide() { goToSlide(currentSlide + 1); }
+    function prevSlide() { goToSlide(currentSlide - 1); }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    buildSlideDots();
+
+    /* =====================================================================
+       3. IMAGE FALLBACKS (AUTHORS + KARLAS FON LINDĖ)
+    ===================================================================== */
+    function handleAuthorImgError(imgEl, authorKey) {
+      const fb = imgEl.getAttribute('data-fallback');
+      if (fb && !imgEl.dataset.triedFallback) {
+        imgEl.dataset.triedFallback = '1';
+        imgEl.src = fb;
+      }
+    }
+
+    function handleLindeImgError(imgEl) {
+      const fb = imgEl.getAttribute('data-fallback');
+      if (fb && !imgEl.dataset.triedFallback) {
+        imgEl.dataset.triedFallback = '1';
+        imgEl.src = fb;
+      }
+    }
+
+    function previewAuthorPhoto(event, imgId) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        document.getElementById(imgId).src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    /* =====================================================================
+       4. STARRY SKY CANVAS (SLIDE 1)
+    ===================================================================== */
+    const starCanvas = document.getElementById('star-canvas');
+    const starCtx = starCanvas.getContext('2d');
+    let stars = [];
+
+    function resizeStarCanvas() {
+      starCanvas.width = window.innerWidth;
+      starCanvas.height = window.innerHeight;
+      stars = Array.from({ length: 135 }, () => ({
+        x: Math.random() * starCanvas.width,
+        y: Math.random() * starCanvas.height,
+        r: Math.random() * 2.1 + 0.5,
+        depth: Math.random() * 0.75 + 0.2,
+        alpha: Math.random(),
+        dAlpha: (Math.random() * 0.018 + 0.004) * (Math.random() < 0.5 ? 1 : -1),
+        vy: -(Math.random() * 0.25 + 0.05)
+      }));
+    }
+
+    function animateStars() {
+      if (currentSlide === 0) {
+        starCtx.clearRect(0, 0, starCanvas.width, starCanvas.height);
+        const offsetX = (mouseX - starCanvas.width / 2) * 0.016;
+        const offsetY = (mouseY - starCanvas.height / 2) * 0.016;
+
+        for (const s of stars) {
+          s.alpha += s.dAlpha;
+          if (s.alpha <= 0.15 || s.alpha >= 1) s.dAlpha *= -1;
+          s.y += s.vy;
+          if (s.y < 0) s.y = starCanvas.height;
+
+          const drawX = (s.x + offsetX * s.depth + starCanvas.width) % starCanvas.width;
+          const drawY = (s.y + offsetY * s.depth + starCanvas.height) % starCanvas.height;
+
+          starCtx.beginPath();
+          starCtx.arc(drawX, drawY, s.r, 0, Math.PI * 2);
+          starCtx.fillStyle = `rgba(244, 244, 240, ${Math.max(0.12, Math.min(1, s.alpha))})`;
+          starCtx.fill();
+        }
+      }
+      requestAnimationFrame(animateStars);
+    }
+
+    window.addEventListener('resize', resizeStarCanvas);
+    resizeStarCanvas();
+    animateStars();
+
+    /* =====================================================================
+       5. SUPREME MONEY GUN ENGINE (CONTINUOUS + BURST CASH)
+    ===================================================================== */
+    const moneyLayer = document.getElementById('money-rain-layer');
+
+    function spawnSingleBill(fromLeft = true, isBurst = false) {
+      if (currentSlide !== 0 && !isBurst) return;
+
+      const bill = document.createElement('div');
+      bill.className = 'flying-bill';
+      bill.innerHTML = `<span>$100</span><span class="flying-bill-badge">Supreme</span><span>$100</span>`;
+
+      const startX = fromLeft ? 180 : window.innerWidth - 265;
+      const startY = window.innerHeight - 170;
+
+      bill.style.left = `${startX}px`;
+      bill.style.top = `${startY}px`;
+      moneyLayer.appendChild(bill);
+
+      const dir = fromLeft ? 1 : -1;
+      const targetX = dir * (Math.random() * (window.innerWidth * 0.56) + 120);
+      const targetY = -(Math.random() * (window.innerHeight * 0.72) + 110);
+      const rot = dir * (Math.random() * 520 + 160);
+      const duration = Math.random() * 1300 + 1600;
+
+      const anim = bill.animate([
+        { transform: `translate(0px, 0px) rotate(${dir * -18}deg) scale(0.55)`, opacity: 0 },
+        { transform: `translate(${targetX * 0.25}px, ${targetY * 0.5}px) rotate(${rot * 0.4}deg) scale(1)`, opacity: 1, offset: 0.2 },
+        { transform: `translate(${targetX}px, ${targetY}px) rotate(${rot}deg) scale(1.1)`, opacity: 0 }
+      ], {
+        duration: duration,
+        easing: 'cubic-bezier(0.16, 0.84, 0.44, 1)'
+      });
+
+      anim.onfinish = () => bill.remove();
+    }
+
+    function burstSupremeCash(count = 28) {
+      for (let i = 0; i < count; i++) {
+        setTimeout(() => {
+          spawnSingleBill(i % 2 === 0, true);
+        }, i * 38);
+      }
+    }
+
+    setInterval(() => {
+      if (currentSlide === 0) {
+        spawnSingleBill(true);
+        setTimeout(() => spawnSingleBill(false), 180);
+      }
+    }, 380);
+
+    /* =====================================================================
+       6. SLIDE 2: ETHER PRESSURE & BOILING SIMULATOR
+    ===================================================================== */
+    function pumpVacuumStep() {
+      const slider = document.getElementById('pressure-slider');
+      let val = parseInt(slider.value, 10) - 25;
+      if (val < 20) val = 100;
+      slider.value = val;
+      playClickSound();
+      updateEtherSim(val);
+    }
+
+    function updateEtherSim(pressureVal) {
+      const p = parseInt(pressureVal, 10);
+      const boilingTemp = Math.round(20 + ((p - 20) / 80) * 15);
+      const frostOpacity = Math.max(0, (75 - p) / 55);
+
+      document.getElementById('pressure-val-label').textContent = `${p} kPa`;
+      document.getElementById('ether-temp-readout').textContent = `T_vir = ${boilingTemp} °C`;
+      document.getElementById('frost-overlay').style.opacity = frostOpacity;
+      document.getElementById('ether-bubbles-group').style.opacity = p <= 60 ? 1 : 0;
+      document.getElementById('svg-frost-crystals').style.opacity = p <= 40 ? 1 : 0;
+
+      const badge = document.getElementById('ether-status-badge');
+      const desc = document.getElementById('ether-desc-readout');
+
+      if (p <= 35) {
+        badge.textContent = "VERDA 20 °C • ŠERKŠNAS!";
+        badge.className = "px-2.5 py-0.5 bg-[#38bdf8]/20 border border-[#38bdf8] text-[#38bdf8] font-mono-tech text-xs font-bold";
+        desc.textContent = "Sumažinus slėgį eteris verda 20 °C temperatūroje, greičiausios molekulės išlekia, ima šilumą iš aplinkos ir kolba apšerkšnija.";
+      } else if (p <= 70) {
+        badge.textContent = "SLĖGIS MAŽĖJA...";
+        badge.className = "px-2.5 py-0.5 bg-zinc-800 border border-white/30 text-zinc-200 font-mono-tech text-xs";
+        desc.textContent = "Slėgis krenta — greičiausios molekulės pradeda lėkti iš skysčio ir vėsina kolbą.";
+      } else {
+        badge.textContent = "100 kPa (Normalus)";
+        badge.className = "px-2.5 py-0.5 bg-zinc-800 border border-white/20 text-zinc-200 font-mono-tech text-xs";
+        desc.textContent = "Normaliomis sąlygomis eterio virimo temperatūra yra 35 °C. Spausk „SIURBTI ORĄ“.";
+      }
+    }
+
+    /* =====================================================================
+       7. SLIDE 3: INTERACTIVE REFRIGERATOR 4-PART INSPECTOR
+    ===================================================================== */
+    let fridgeTurbo = false;
+    function toggleFridgeTurbo() {
+      fridgeTurbo = !fridgeTurbo;
+      const wrap = document.getElementById('fridge-svg-wrap');
+      const btn = document.getElementById('turbo-fridge-btn');
+      wrap.classList.toggle('turbo-flow', fridgeTurbo);
+      btn.textContent = fridgeTurbo ? "GREITIS: TURBO (2.5X)" : "GREITIS: NORMALUS";
+      playClickSound();
+    }
+
+    const fridgePartsInfo = [
+      {
+        title: "1. KOMPRESORIUS (LOT. COMPRESSOR — SUSPAUDĖJAS)",
+        text: "Su elektros varikliu sujungtas kompresorius sukuria labai didelį slėgį: suspaudžia šaldymo skysčio garus ir pumpuoja juos vamzdeliais į kondensatorių."
+      },
+      {
+        title: "2. KONDENSATORIUS (GALINĖJE SIENELĖJE)",
+        text: "Išraizgytas šaldytuvo galinėje sienelėje. Jame skysčio garai kondensuojasi ir išskiria į aplinką kondensacijos metu išsiskyrusią energiją."
+      },
+      {
+        title: "3. IŠSIPLĖTIMO VOŽTUVAS",
+        text: "Toliau skystis pasiekia išsiplėtimo vožtuvą ir pakliūva į garintuvą, kuriame slėgis yra žemas."
+      },
+      {
+        title: "4. GARINTUVAS (ŠALDIKLIS VIRŠUJE)",
+        text: "Čia skystis užverda ir smarkiai garuoja imdamas energiją iš šaldytuve esančių produktų. Montuojamas viršuje, nes šaltas oras leidžiasi žemyn."
+      }
+    ];
+
+    function selectFridgePart(idx) {
+      playClickSound();
+      for (let i = 0; i < 4; i++) {
+        const card = document.getElementById(`part-card-${i}`);
+        if (i === idx) {
+          card.classList.add('border-2', 'border-[#ff4f00]');
+        } else {
+          card.classList.remove('border-2', 'border-[#ff4f00]');
+        }
+      }
+      document.getElementById('inspector-title').textContent = fridgePartsInfo[idx].title;
+      document.getElementById('inspector-text').textContent = fridgePartsInfo[idx].text;
+    }
+
+    /* =====================================================================
+       8. SLIDE 4: AIR CONDITIONER VS. OPEN FRIDGE EXPERIMENT
+    ===================================================================== */
+    function setRoomExperiment(mode) {
+      playClickSound();
+      const acBtn = document.getElementById('exp-ac-btn');
+      const frBtn = document.getElementById('exp-fridge-btn');
+      const badge = document.getElementById('room-temp-badge');
+      const text = document.getElementById('room-exp-text');
+
+      if (mode === 'ac') {
+        acBtn.className = "mech-btn-orange py-2 px-3 rounded font-mono-tech font-bold text-xs";
+        frBtn.className = "mech-btn py-2 px-3 rounded font-mono-tech font-bold text-xs";
+        badge.textContent = "T_kamb = 19 °C (VĖSTA)";
+        badge.className = "px-2.5 py-0.5 bg-[#38bdf8]/20 text-[#38bdf8] font-mono-tech font-bold text-xs";
+        text.textContent = "Kondicionierius su ventiliatoriumi paima šilumą iš kambario oro, o kondensatorius išmeta šilumą į lauką — patalpa vėsta.";
+      } else {
+        frBtn.className = "mech-btn-orange py-2 px-3 rounded font-mono-tech font-bold text-xs";
+        acBtn.className = "mech-btn py-2 px-3 rounded font-mono-tech font-bold text-xs";
+        badge.textContent = "T_kamb = 26 °C (ŠYLA!)";
+        badge.className = "px-2.5 py-0.5 bg-[#ff4f00]/20 text-[#ff4f00] font-mono-tech font-bold text-xs";
+        text.textContent = "1 užduoties atsakymas: Atidarius šaldytuvą butas NEATVĖS, o tik SUŠILS, nes kondensatorius galinėje sienelėje ir kompresoriaus variklis į kambarį išskiria daugiau šilumos nei sugeria garintuvas.";
+      }
+    }
+
+    /* =====================================================================
+       9. SLIDE 5: COP 1:4 HEAT PUMP CALCULATOR
+    ===================================================================== */
+    function updateCopCalc(val) {
+      const elec = parseInt(val, 10);
+      const envHeat = elec * 3;
+      const totalHeat = elec * 4;
+
+      document.getElementById('elec-kwh-val').textContent = `${elec} kWh (${elec * 108} MJ)`;
+      document.getElementById('env-kwh-val').textContent = `+${envHeat} kWh (iš aplinkos)`;
+      document.getElementById('heat-kwh-val').textContent = `${totalHeat} kWh (${elec * 360} MJ)`;
+
+      document.getElementById('elec-bar').style.width = `${Math.max(12, elec * 10)}%`;
+      document.getElementById('env-bar').style.width = `${Math.min(100, elec * 10 * 0.75 + 15)}%`;
+      document.getElementById('heat-bar').style.width = `${Math.min(100, elec * 10 + 20)}%`;
+    }
+
+    /* =====================================================================
+       10. SLIDE 8: ARIANHOOT! GAME ENGINE (UNLIMITED TIME ∞)
+    ===================================================================== */
+    const kahootQuestions = [
+      {
+        q: "1. Kas nutiks kambario temperatūrai, jei paliksime atidarytas veikiančio šaldytuvo duris?",
+        options: [
+          "Kambarys greitai atvės",
+          "Kambarys sušils, nes kondensatorius ir variklis išskiria daugiau šilumos",
+          "Temperatūra kambaryje visiškai nepakis",
+          "Šaldytuvas užšaldys visą butą"
+        ],
+        correct: 1,
+        explain: "Šaldytuvo kondensatorius išskiria visą iš kameros paimtą šilumą plius kompresoriaus variklio šilumą."
+      },
+      {
+        q: "2. Kodėl garintuvas šaldytuve įrengiamas viršuje, o ne apačioje?",
+        options: [
+          "Kad būtų patogiau pasiekti ledus",
+          "Nes šiltas oras leidžiasi žemyn",
+          "Nes šaltas oras yra tankesnis ir sunkesnis, todėl leidžiasi žemyn",
+          "Kad kompresorius mažiau ūžtų"
+        ],
+        correct: 2,
+        explain: "Atvėsęs oras yra tankesnis, todėl leidžiasi žemyn ir konvekcijos būdu atšaldo visą šaldytuvo kamerą."
+      },
+      {
+        q: "3. Kokia spalva dažomi šaldytuvų kondensatoriai (galinėje sienelėje) ir kodėl?",
+        options: [
+          "Juoda spalva, nes tamsūs paviršiai geriausiai spinduliuoja šilumą aplinkai",
+          "Balta spalva, kad atspindėtų šaltį",
+          "Geltona spalva dėl grožio",
+          "Žalia spalva dėl ekologijos"
+        ],
+        correct: 0,
+        explain: "Juodi paviršiai efektyviausiai išspinduliuoja kondensacijos metu išsiskyrusią šilumą į kambario orą."
+      },
+      {
+        q: "4. Ką reiškia, jei šilumos siurblio naudingumo koeficientas lygus 4 (santykis 1 : 4)?",
+        options: [
+          "Siurblys turi 4 kompresorius",
+          "Suvartojęs 1 kWh elektros, siurblys patalpoms perduoda 4 kWh šilumos",
+          "Siurblys veikia tik 4 valandas per parą",
+          "4 kWh elektros pagamina 1 kWh šilumos"
+        ],
+        correct: 1,
+        explain: "1 kWh elektros energijos kompresoriui + 3 kWh šilumos iš aplinkos = 4 kWh šilumos namams."
+      },
+      {
+        q: "5. Kas atsitiktų pažeidus šaldytuvo vamzdelius jį valant ar transportuojant?",
+        options: [
+          "Šaldytuvas pradėtų šaldyti dvigubai stipriau",
+          "Nieko neatsitiktų, veiktų kaip kondicionierius",
+          "Šaldymo skystis išgaruotų ir šaldytuvas nustotų veikti",
+          "Kompresorius virstų ledo spinta"
+        ],
+        correct: 2,
+        explain: "Pažeidus uždarą vamzdelių ratą, žemoje temperatūroje verdantis skystis išgaruoja ir ciklas nutrūksta."
+      },
+      {
+        q: "6. Kas 1876 m. sukūrė pirmąją galingą ledo šaldymo mašiną (šaldytuvo pirmtaką)?",
+        options: [
+          "Vokiečių fizikas ir inžinierius Karlas fon Lindė (1842–1934)",
+          "Izaokas Niutonas",
+          "Tomas Edisonas",
+          "Galilėjas Galilėjus"
+        ],
+        correct: 0,
+        explain: "1876 m. Karlas fon Lindė (1842–1934) sukūrė pirmąją dirbtinio ledo šaldymo mašiną."
+      },
+      {
+        q: "7. Per parą šilumos siurblys namui perdavė 1,5 GJ šilumos (koeficientas = 4). Kiek elektros jis suvartojo?",
+        options: [
+          "6,0 GJ elektros energijos",
+          "1,5 GJ elektros energijos",
+          "0,375 GJ (375 MJ) elektros energijos (galia ~4,34 kW)",
+          "0 GJ, nes veikia be elektros"
+        ],
+        correct: 2,
+        explain: "1,5 GJ / 4 = 0,375 GJ = 375 MJ elektros energijos (per 24 h tai atitinka ~4,34 kW galią)."
+      },
+      {
+        q: "8. Kas yra šio fizikos projekto autoriai iš 9c klasės?",
+        options: [
+          "Vitalij Žuravliov (9c) ir Laurynas Basys (9c)",
+          "Karlas fon Lindė ir Izaokas Niutonas",
+          "Albertas Einšteinas ir Nikola Tesla",
+          "Tomas Edisonas ir Maiklas Faradėjus"
+        ],
+        correct: 0,
+        explain: "Projektą sukūrė 9c klasės autoriai Vitalij Žuravliov ir Laurynas Basys!"
+      }
+    ];
+
+    let kCurrent = 0;
+    let kScore = 0;
+    let kStreak = 0;
+    let kCorrectTotal = 0;
+    let kLocked = false;
+    let kDoubleActive = false;
+    let used5050 = false;
+    let used2x = false;
+
+    function useLifeline5050() {
+      if (kLocked || used5050) return;
+      used5050 = true;
+      playClickSound();
+      const btn50 = document.getElementById('lifeline-5050');
+      btn50.disabled = true;
+      btn50.classList.add('opacity-40', 'cursor-not-allowed');
+
+      const correctIdx = kahootQuestions[kCurrent].correct;
+      const wrongIndices = [0, 1, 2, 3].filter(i => i !== correctIdx);
+      wrongIndices.sort(() => Math.random() - 0.5);
+      const toHide = wrongIndices.slice(0, 2);
+
+      const buttons = document.querySelectorAll('#k-options-grid .kahoot-ans-btn');
+      toHide.forEach(idx => {
+        buttons[idx].disabled = true;
+        buttons[idx].classList.add('k-dimmed');
+      });
+    }
+
+    function useLifeline2x() {
+      if (kLocked || used2x) return;
+      used2x = true;
+      kDoubleActive = true;
+      playCashSound();
+      const btn2x = document.getElementById('lifeline-2x');
+      btn2x.disabled = true;
+      btn2x.classList.add('opacity-40', 'cursor-not-allowed');
+      document.getElementById('k-active-2x-badge').classList.remove('hidden');
+    }
+
+    function renderKahootQuestion() {
+      const item = kahootQuestions[kCurrent];
+      kLocked = false;
+      kDoubleActive = false;
+      document.getElementById('k-active-2x-badge').classList.add('hidden');
+
+      document.getElementById('k-progress-pill').textContent = `${kCurrent + 1} / ${kahootQuestions.length}`;
+      document.getElementById('k-score-pill').textContent = `${kScore} TŠK.`;
+      document.getElementById('k-streak').textContent = `SERIJA: ${kStreak}`;
+      document.getElementById('k-question-title').textContent = item.q;
+
+      const fb = document.getElementById('k-feedback-msg');
+      fb.textContent = "PASIRINK TEISINGĄ ATSAKYMĄ (LAIKAS NERIBOJAMAS ∞)";
+      fb.className = "text-xs sm:text-sm font-mono-tech text-zinc-300";
+
+      document.getElementById('k-next-btn').classList.add('hidden');
+
+      const buttons = document.querySelectorAll('#k-options-grid .kahoot-ans-btn');
+      buttons.forEach((btn, idx) => {
+        btn.disabled = false;
+        btn.classList.remove('k-correct-highlight', 'k-wrong-highlight', 'k-dimmed');
+        btn.querySelector('.k-opt-text').textContent = item.options[idx];
+      });
+    }
+
+    function submitKahootAnswer(choiceIdx) {
+      if (kLocked) return;
+      kLocked = true;
+
+      const item = kahootQuestions[kCurrent];
+      const buttons = document.querySelectorAll('#k-options-grid .kahoot-ans-btn');
+      const fb = document.getElementById('k-feedback-msg');
+
+      buttons.forEach((btn, idx) => {
+        btn.disabled = true;
+        if (idx === item.correct) {
+          btn.classList.add('k-correct-highlight');
+        } else if (idx === choiceIdx) {
+          btn.classList.add('k-wrong-highlight');
+        } else {
+          btn.classList.add('k-dimmed');
+        }
+      });
+
+      if (choiceIdx === item.correct) {
+        playWinSound();
+        kStreak++;
+        const basePoints = 1000 + (kStreak - 1) * 150;
+        const pointsEarned = kDoubleActive ? basePoints * 2 : basePoints;
+        kScore += pointsEarned;
+        kCorrectTotal++;
+        fb.textContent = `✓ TEISINGAI (+${pointsEarned} TŠK.): ${item.explain}`;
+        fb.className = "text-xs sm:text-sm font-mono-tech font-bold text-emerald-400";
+      } else {
+        playWrongSound();
+        kStreak = 0;
+        fb.textContent = `✕ NETEISINGAI: ${item.explain}`;
+        fb.className = "text-xs sm:text-sm font-mono-tech font-bold text-red-400";
+      }
+
+      document.getElementById('k-score-pill').textContent = `${kScore} TŠK.`;
+      document.getElementById('k-streak').textContent = `SERIJA: ${kStreak}`;
+
+      const nextBtn = document.getElementById('k-next-btn');
+      nextBtn.textContent = (kCurrent === kahootQuestions.length - 1) ? "RODYTI REZULTATUS →" : "KITAS KLAUSIMAS →";
+      nextBtn.classList.remove('hidden');
+    }
+
+    function nextKahootStep() {
+      playClickSound();
+      if (kCurrent < kahootQuestions.length - 1) {
+        kCurrent++;
+        renderKahootQuestion();
+      } else {
+        playWinSound();
+        document.getElementById('k-game-stage').classList.add('hidden');
+        document.getElementById('k-footer-bar').classList.add('hidden');
+        const podium = document.getElementById('k-podium-screen');
+        podium.classList.remove('hidden');
+        podium.classList.add('flex');
+        document.getElementById('k-final-points').textContent = `${kScore} TAŠKŲ`;
+        document.getElementById('k-final-accuracy').textContent = `Teisingai atsakyta: ${kCorrectTotal} iš ${kahootQuestions.length}`;
+        burstSupremeCash(40);
+      }
+    }
+
+    function resetKahootGame() {
+      kCurrent = 0;
+      kScore = 0;
+      kStreak = 0;
+      kCorrectTotal = 0;
+      used5050 = false;
+      used2x = false;
+
+      const btn50 = document.getElementById('lifeline-5050');
+      btn50.disabled = false;
+      btn50.classList.remove('opacity-40', 'cursor-not-allowed');
+
+      const btn2x = document.getElementById('lifeline-2x');
+      btn2x.disabled = false;
+      btn2x.classList.remove('opacity-40', 'cursor-not-allowed');
+
+      const podium = document.getElementById('k-podium-screen');
+      podium.classList.add('hidden');
+      podium.classList.remove('flex');
+      document.getElementById('k-game-stage').classList.remove('hidden');
+      document.getElementById('k-footer-bar').classList.remove('hidden');
+      renderKahootQuestion();
+    }
+
+    renderKahootQuestion();
+  </script>
 </body>
 </html>
